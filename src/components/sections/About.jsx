@@ -13,11 +13,11 @@ const About = () => {
               <i className="fas fa-user-tie mr-2"></i>Who I Am
             </h3>
             <p className="text-slate-300 leading-relaxed mb-4">
-              👋 Xin chào! Tôi là Backend Developer với niềm đam mê xây dựng các hệ thống backend hiệu quả, có khả năng mở rộng và dễ bảo trì.
+              👋 Hello! I'm a Backend Developer passionate about building efficient, scalable, and maintainable backend systems.
             </p>
             <p className="text-slate-300 leading-relaxed">
-              🎯 Chuyên môn của tôi là xây dựng Web APIs mạnh mẽ và kiến trúc Microservices với{' '}
-              <span className="text-primary font-semibold text-lg">Spring Boot</span> và{' '}
+              🎯 My expertise lies in building robust Web APIs and Microservices architectures with{' '}
+              <span className="text-primary font-semibold text-lg">Spring Boot</span> and{' '}
               <span className="text-purple-400 font-semibold text-lg">.NET Core</span>.
             </p>
           </div>
@@ -28,19 +28,19 @@ const About = () => {
             <ul className="space-y-4 text-slate-300">
               <li className="flex items-start group">
                 <i className="fas fa-check-circle text-primary mr-3 mt-1 group-hover:scale-125 transition-transform"></i>
-                <span>Thiết kế và phát triển RESTful APIs có khả năng mở rộng cao</span>
+                <span>Designing and developing highly scalable RESTful APIs</span>
               </li>
               <li className="flex items-start group">
                 <i className="fas fa-check-circle text-primary mr-3 mt-1 group-hover:scale-125 transition-transform"></i>
-                <span>Xây dựng kiến trúc Microservices với Docker và Kafka</span>
+                <span>Building Microservices architecture with Docker and Kafka</span>
               </li>
               <li className="flex items-start group">
                 <i className="fas fa-check-circle text-primary mr-3 mt-1 group-hover:scale-125 transition-transform"></i>
-                <span>Tối ưu hóa Database và xử lý dữ liệu lớn</span>
+                <span>Database optimization and big data processing</span>
               </li>
               <li className="flex items-start group">
                 <i className="fas fa-check-circle text-primary mr-3 mt-1 group-hover:scale-125 transition-transform"></i>
-                <span>Implement Clean Architecture và Design Patterns</span>
+                <span>Implementing Clean Architecture and Design Patterns</span>
               </li>
             </ul>
           </div>

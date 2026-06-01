@@ -31,7 +31,7 @@ const Preloader = () => {
           className="absolute inset-2 rounded-full border-r-2 border-secondary animate-spin"
           style={{ animationDirection: 'reverse', animationDuration: '1.5s' }}
         ></div>
-        <span className="text-primary font-bold animate-pulse text-xl">LT</span>
+        <span className="text-primary font-bold animate-pulse text-xl">Tỉnh DEV</span>
       </div>
       <p className="text-slate-400 text-sm tracking-widest animate-pulse uppercase">Đang tải...</p>
     </div>

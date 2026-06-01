@@ -32,7 +32,7 @@ const Navbar = ({ activeSection }) => {
           </a>
 
           <div className="hidden md:flex space-x-8">
-            {['home', 'about', 'skills', 'projects', 'contact'].map((section) => (
+            {['home', 'about', 'journey', 'skills', 'projects', 'contact'].map((section) => (
               <a
                 key={section}
                 href={`#${section}`}
@@ -60,7 +60,7 @@ const Navbar = ({ activeSection }) => {
         } md:hidden glass border-t border-slate-800`}
       >
         <div className="px-2 pt-2 pb-3 space-y-1">
-          {['home', 'about', 'skills', 'projects', 'contact'].map((section) => (
+          {['home', 'about', 'journey', 'skills', 'projects', 'contact'].map((section) => (
             <a
               key={section}
               href={`#${section}`}

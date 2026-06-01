@@ -1,9 +1,49 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Hero = () => {
+  // --- LOGIC HIỆU ỨNG TYPEWRITER ---
+  const phrases = [
+    "Backend Software Engineer",
+    "Java Developer",
+    "Full Stack Developer"
+  ];
+
+  const [text, setText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [loopNum, setLoopNum] = useState(0);
+  const [typingSpeed, setTypingSpeed] = useState(100);
+
+  useEffect(() => {
+    const i = loopNum % phrases.length;
+    const fullText = phrases[i];
+
+    const handleTyping = () => {
+      setText(
+        isDeleting
+          ? fullText.substring(0, text.length - 1)
+          : fullText.substring(0, text.length + 1)
+      );
+
+      setTypingSpeed(isDeleting ? 40 : 100);
+
+      if (!isDeleting && text === fullText) {
+        setTimeout(() => setIsDeleting(true), 2000); // Dừng lại 2s trước khi xoá
+      } else if (isDeleting && text === '') {
+        setIsDeleting(false);
+        setLoopNum(loopNum + 1);
+      }
+    };
+
+    const timer = setTimeout(handleTyping, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [text, isDeleting, loopNum, typingSpeed]);
+  // ---------------------------------
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center px-4 pt-16">
       <div className="max-w-5xl mx-auto text-center z-10 reveal">
+        
+        {/* Avatar */}
         <div className="float mb-8">
           <div className="w-48 h-48 mx-auto rounded-full glass border-4 border-primary/30 flex items-center justify-center text-8xl shadow-[0_0_40px_rgba(0,217,255,0.2)]">
             <img
@@ -16,18 +56,29 @@ const Hero = () => {
             />
           </div>
         </div>
+
+        {/* Tên */}
         <h1 className="text-5xl md:text-7xl font-bold mb-4">
           Lê Hoàng <span className="gradient-text">Quách Tỉnh</span>
         </h1>
-        <p className="text-xl md:text-2xl text-slate-400 mb-6 font-light">
-          Backend Software Engineer
+
+        {/* Typewriter Text (Đã cập nhật) */}
+        <p className="text-xl md:text-2xl mb-6 font-semibold min-h-[32px] flex items-center justify-center">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-400 to-secondary">
+            {text}
+          </span>
+          <span className="text-primary animate-pulse ml-1">|</span>
         </p>
+
+        {/* Mô tả */}
         <p className="text-lg text-slate-300 max-w-2xl mx-auto mb-8 leading-relaxed">
           Passionate about building scalable Web APIs and Microservices with
           <br />
           <span className="text-primary font-semibold">Spring Boot</span> &{' '}
           <span className="text-purple-400 font-semibold">.NET Core</span>
         </p>
+
+        {/* Nút Call to Action */}
         <div className="flex flex-wrap gap-4 justify-center">
           <a
             href="#projects"
@@ -35,7 +86,7 @@ const Hero = () => {
           >
             View Project
           </a>
-         <a
+          <a
             href="https://drive.google.com/file/d/1HsMrFzZnRwr5ZxlYRiyRWi0Q0OVIm-JH/view?usp=sharing" 
             target="_blank" 
             rel="noopener noreferrer"
@@ -44,6 +95,8 @@ const Hero = () => {
             See CV
           </a>
         </div>
+
+        {/* Social Links */}
         <div className="flex gap-6 justify-center mt-10">
           <a
             href="https://github.com/Tinh0804"
@@ -68,6 +121,7 @@ const Hero = () => {
             <i className="fas fa-envelope"></i>
           </a>
         </div>
+        
       </div>
     </section>
   );

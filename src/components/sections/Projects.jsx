@@ -1,87 +1,142 @@
 import React from 'react';
 
+// Chuyển data vào mảng để dễ dàng quản lý và map ra giao diện
+const projectsData = [
+  {
+    id: 1,
+    title: "E-Commerce Microservices",
+    isImage: false,
+    icon: "🛒",
+    bgGradient: "from-primary/20 to-secondary/20",
+    hoverColor: "group-hover:text-primary",
+    desc: "An e-commerce platform based on microservices architecture using Spring Boot, including authentication, product catalog, and order management.",
+    techs: [
+      { name: "Spring Boot", classes: "bg-primary/10 text-primary border-primary/30" },
+      { name: "Docker", classes: "bg-primary/10 text-primary border-primary/30" },
+      { name: "MongoDB", classes: "bg-primary/10 text-primary border-primary/30" }
+    ],
+    link: "https://github.com/Tinh0804/E-Commerce",
+    linkColor: "text-primary hover:text-secondary"
+  },
+  {
+    id: 2,
+    title: "English Learning App",
+    isImage: true,
+    icon: "/assets/images/learninglanguage.png",
+    bgGradient: "from-green-400/20 to-blue-500/20",
+    hoverColor: "group-hover:text-secondary",
+    desc: "Cross-platform English learning app following a Gamification model. Integrated with AI for learning support, shop system, and progress tracking.",
+    techs: [
+      { name: ".NET Core", classes: "bg-secondary/10 text-secondary border-secondary/30" },
+      { name: "SQL Server", classes: "bg-secondary/10 text-secondary border-secondary/30" },
+      { name: "SignalR", classes: "bg-secondary/10 text-secondary border-secondary/30" },
+      { name: "AI API", classes: "bg-purple-500/10 text-purple-400 border-purple-500/30" }
+    ],
+    link: "https://github.com/Tinh0804/Web_Advance",
+    linkColor: "text-secondary hover:text-primary"
+  },
+  {
+    id: 3,
+    title: "RideBook - Ride Booking",
+    isImage: true,
+    icon: "/assets/images/ridebook.png",
+    bgGradient: "from-orange-500/20 to-yellow-500/20",
+    hoverColor: "group-hover:text-yellow-400",
+    desc: "Backend for an online ride-booking system. Features real-time tracking, smart matching between drivers and passengers, and payment processing.",
+    techs: [
+      { name: "Spring Boot", classes: "bg-yellow-500/10 text-yellow-400 border-yellow-500/30" },
+      { name: "Redis", classes: "bg-yellow-500/10 text-yellow-400 border-yellow-500/30" },
+      { name: "Socket.io", classes: "bg-yellow-500/10 text-yellow-400 border-yellow-500/30" },
+      { name: "SQL Server", classes: "bg-yellow-500/10 text-yellow-400 border-yellow-500/30" }
+    ],
+    link: "https://github.com/Tinh0804/RideBook",
+    linkColor: "text-yellow-400 hover:text-primary"
+  },
+  {
+    id: 4,
+    title: "Real-time Auction Platform",
+    isImage: false,
+    icon: "🔨",
+    bgGradient: "from-rose-500/20 to-pink-500/20",
+    hoverColor: "group-hover:text-rose-400",
+    desc: "Real-time online auction system. Supports continuous bidding, auction countdown, and instant result updates without delay.",
+    techs: [
+      { name: "Spring boot", classes: "bg-rose-500/10 text-rose-400 border-rose-500/30" },
+      { name: "Socket.io", classes: "bg-rose-500/10 text-rose-400 border-rose-500/30" },
+      { name: "Redis", classes: "bg-rose-500/10 text-rose-400 border-rose-500/30" },
+      { name: "PostgreSQL", classes: "bg-rose-500/10 text-rose-400 border-rose-500/30" }
+    ],
+    link: "https://github.com/Tinh0804/Auction", // Đổi lại link Github thực tế của bạn
+    linkColor: "text-rose-400 hover:text-pink-400"
+  }
+];
+
 const Projects = () => {
   return (
-    <section id="projects" className="relative py-20 px-4">
-      <div className="max-w-6xl mx-auto">
+    <section id="projects" className="relative py-20 px-4 overflow-hidden">
+      {/* CSS tích hợp cho animation chạy chữ (Marquee) */}
+      <style>
+        {`
+          @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-marquee {
+            animation: marquee 30s linear infinite;
+          }
+          /* Dừng hiệu ứng cuộn khi di chuột vào */
+          .animate-marquee:hover {
+            animation-play-state: paused;
+          }
+        `}
+      </style>
+
+      <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 reveal">
           Featured <span className="gradient-text">Projects</span>
         </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          
-          <div className="glass rounded-2xl overflow-hidden card-hover group reveal" style={{ transitionDelay: '100ms' }}>
-            <div className="h-48 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center text-6xl relative overflow-hidden">
-              <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <span className="group-hover:scale-125 transition-transform duration-500">🛒</span>
-            </div>
-            <div className="p-6">
-              <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition">
-                E-Commerce Microservices
-              </h3>
-              <p className="text-slate-400 text-sm mb-4 leading-relaxed line-clamp-3">
-                Nền tảng thương mại điện tử dựa trên kiến trúc microservices với
-                Spring Boot, bao gồm authentication, product catalog, order management.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs border border-primary/30">Spring Boot</span>
-                <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs border border-primary/30">Docker</span>
-                <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs border border-primary/30">MongoDB</span>
+        
+        {/* Container cho hiệu ứng Marquee */}
+        <div className="relative w-full overflow-hidden">
+          <div className="flex w-max animate-marquee gap-8 pb-8 px-4">
+            
+            {/* Nhân đôi danh sách project để tạo vòng lặp vô tận trơn tru */}
+            {[...projectsData, ...projectsData].map((project, index) => (
+              <div 
+                key={index} 
+                className="w-[320px] md:w-[400px] shrink-0 glass rounded-2xl overflow-hidden card-hover group"
+              >
+                <div className={`h-48 bg-gradient-to-br ${project.bgGradient} flex items-center justify-center text-6xl relative overflow-hidden`}>
+                  <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  {project.isImage ? (
+                    <img src={project.icon} alt={project.title} className="group-hover:scale-110 transition-transform duration-500 object-cover h-full w-full opacity-90 group-hover:opacity-100" />
+                  ) : (
+                    <span className="group-hover:scale-125 transition-transform duration-500">{project.icon}</span>
+                  )}
+                </div>
+                
+                <div className="p-6">
+                  <h3 className={`text-xl font-bold mb-3 ${project.hoverColor} transition`}>
+                    {project.title}
+                  </h3>
+                  <p className="text-slate-400 text-sm mb-4 leading-relaxed line-clamp-3">
+                    {project.desc}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-6 h-[60px] content-start">
+                    {project.techs.map((tech, i) => (
+                      <span key={i} className={`px-3 py-1 rounded-full text-xs border ${tech.classes}`}>
+                        {tech.name}
+                      </span>
+                    ))}
+                  </div>
+                  <a href={project.link} target="_blank" rel="noreferrer" className={`interactive transition flex items-center w-max ${project.linkColor}`}>
+                    View Project <i className="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                  </a>
+                </div>
               </div>
-              <a href="https://github.com/Tinh0804/E-Commerce" target="_blank" rel="noreferrer" className="interactive text-primary hover:text-secondary transition flex items-center w-max">
-                View Project <i className="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
-              </a>
-            </div>
+            ))}
+            
           </div>
-
-          <div className="glass rounded-2xl overflow-hidden card-hover group reveal" style={{ transitionDelay: '200ms' }}>
-            <div className="h-48 bg-gradient-to-br from-green-400/20 to-blue-500/20 flex items-center justify-center text-6xl relative overflow-hidden">
-              <div className="absolute inset-0 bg-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <span className="group-hover:scale-125 transition-transform duration-500">📚</span>
-            </div>
-            <div className="p-6">
-              <h3 className="text-xl font-bold mb-3 group-hover:text-secondary transition">
-                English Learning App
-              </h3>
-              <p className="text-slate-400 text-sm mb-4 leading-relaxed line-clamp-3">
-                Ứng dụng học tiếng Anh đa nền tảng theo mô hình Gamification. 
-                Tích hợp AI hỗ trợ học tập, hệ thống cửa hàng (Shop) và theo dõi tiến độ.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-xs border border-secondary/30">.NET Core</span>
-                <span className="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-xs border border-secondary/30">SQL Server</span>
-                <span className="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-xs border border-secondary/30">SignalR</span>
-                <span className="px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full text-xs border border-purple-500/30">AI API</span>
-              </div>
-              <a href="https://github.com/Tinh0804/Web_Advance" target="_blank" rel="noreferrer" className="interactive text-secondary hover:text-primary transition flex items-center w-max">
-                View Project <i className="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
-              </a>
-            </div>
-          </div>
-
-          <div className="glass rounded-2xl overflow-hidden card-hover group reveal" style={{ transitionDelay: '300ms' }}>
-            <div className="h-48 bg-gradient-to-br from-orange-500/20 to-yellow-500/20 flex items-center justify-center text-6xl relative overflow-hidden">
-              <div className="absolute inset-0 bg-yellow-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <span className="group-hover:scale-125 transition-transform duration-500">🚕</span>
-            </div>
-            <div className="p-6">
-              <h3 className="text-xl font-bold mb-3 group-hover:text-yellow-400 transition">
-                RideBook - Ride Booking
-              </h3>
-              <p className="text-slate-400 text-sm mb-4 leading-relaxed line-clamp-3">
-                Hệ thống đặt xe trực tuyến Backend. Tích hợp tính năng realtime tracking, ghép cuốc thông minh (Smart Matching) giữa tài xế và hành khách, xử lý thanh toán.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className="px-3 py-1 bg-yellow-500/10 text-yellow-400 rounded-full text-xs border border-yellow-500/30">Spring Boot</span>
-                <span className="px-3 py-1 bg-yellow-500/10 text-yellow-400 rounded-full text-xs border border-yellow-500/30">Redis</span>
-                <span className="px-3 py-1 bg-yellow-500/10 text-yellow-400 rounded-full text-xs border border-yellow-500/30">WebSockets</span>
-                <span className="px-3 py-1 bg-yellow-500/10 text-yellow-400 rounded-full text-xs border border-yellow-500/30">SQL Server</span>
-              </div>
-              <a href="https://github.com/Tinh0804/RideBook" target="_blank" rel="noreferrer" className="interactive text-yellow-400 hover:text-primary transition flex items-center w-max">
-                View Project <i className="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
-              </a>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
