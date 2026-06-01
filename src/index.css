@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #00D9FF;
+  --color-secondary: #6366f1;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  * {
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Tùy chỉnh thanh cuộn (Scrollbar) */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0f172a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00D9FF;
+  }
+
+  /* Ẩn con trỏ mặc định trên Desktop để dùng con trỏ Custom */
+  @media (min-width: 768px) {
+    body {
+      cursor: none;
+    }
+    a, button, input, textarea {
+      cursor: none;
+    }
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    background: linear-gradient(135deg, #00D9FF 0%, #6366f1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    animation: blob 7s infinite;
+  }
+
+  @keyframes blob {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+  }
+
+  /* Tối ưu hiệu ứng Hover Card */
+  .card-hover {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px -10px rgba(0, 217, 255, 0.3);
+    border-color: rgba(0, 217, 255, 0.4);
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  .float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .skill-bar {
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .nav-link {
+    position: relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #00D9FF, #6366f1);
+    transition: width 0.3s ease-out;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
+  }
+
+  .nav-link.text-primary::after {
+    width: 100%;
+  }
+
+  /* --- CUSTOM CURSOR --- */
+  .cursor-dot {
+    position: fixed;
+    top: 0; left: 0;
+    width: 8px; height: 8px;
+    background-color: #00D9FF;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s;
+  }
+
+  .cursor-outline {
+    position: fixed;
+    top: 0; left: 0;
+    width: 32px; height: 32px;
+    border: 2px solid rgba(99, 102, 241, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s;
+  }
+
+  .cursor-hover .cursor-outline {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 217, 255, 0.1);
+    border-color: #00D9FF;
+  }
+
+  /* --- SCROLL REVEAL (Hiệu ứng cuộn) --- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
