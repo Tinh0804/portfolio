@@ -98,10 +98,21 @@ const Skills = () => {
                   <span className="flex items-center">
                     <img 
                       src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" 
-                      alt="Spring MVC" 
+                      alt="Spring Security" 
                       className="w-5 h-5 mr-2" 
                     />
-                    Spring MVC
+                    Spring Security
+                  </span>
+                  <i className="fas fa-star text-yellow-400"></i>
+                </div>
+                <div className="flex items-center justify-between p-2 bg-slate-800/50 rounded hover:bg-slate-700/50 transition cursor-default">
+                  <span className="flex items-center">
+                    <img 
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" 
+                      alt="Spring Data JPA" 
+                      className="w-5 h-5 mr-2" 
+                    />
+                    Spring Data JPA
                   </span>
                   <i className="fas fa-star text-yellow-400"></i>
                 </div>
@@ -118,6 +129,7 @@ const Skills = () => {
                 </div>
               </div>
             </div>
+
 
             {/* Databases */}
             <div className="glass rounded-xl p-6 card-hover reveal" style={{ transitionDelay: '300ms' }}>
@@ -265,6 +277,16 @@ const Skills = () => {
                       className="w-5 h-5 mr-2" 
                     />
                     IntelliJ
+                  </span>
+                </div>
+                <div className="flex items-center p-2 bg-slate-800/50 rounded hover:bg-slate-700/50 transition cursor-default">
+                  <span className="flex items-center">
+                    <img 
+                      src="https://upload.wikimedia.org/wikipedia/commons/b/b5/DBeaver_logo.svg" 
+                      alt="DBeaver" 
+                      className="w-5 h-5 mr-2" 
+                    />
+                    DBeaver
                   </span>
                 </div>
               </div>

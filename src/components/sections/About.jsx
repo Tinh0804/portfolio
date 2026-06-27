@@ -32,7 +32,7 @@ const About = () => {
               </li>
               <li className="flex items-start group">
                 <i className="fas fa-check-circle text-primary mr-3 mt-1 group-hover:scale-125 transition-transform"></i>
-                <span>Building Microservices architecture with Docker and Kafka</span>
+                <span>Building Microservices architecture with Docker and RabbitMQ</span>
               </li>
               <li className="flex items-start group">
                 <i className="fas fa-check-circle text-primary mr-3 mt-1 group-hover:scale-125 transition-transform"></i>

@@ -129,9 +129,14 @@ const Projects = () => {
                       </span>
                     ))}
                   </div>
-                  <a href={project.link} target="_blank" rel="noreferrer" className={`interactive transition flex items-center w-max ${project.linkColor}`}>
-                    View Project <i className="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
-                  </a>
+                  <div className="flex items-center justify-between mt-auto">
+                    <a href={project.demo || "#"} target="_blank" rel="noreferrer" className={`interactive transition flex items-center w-max ${project.linkColor}`}>
+                      Live Demo <i className="fas fa-external-link-alt ml-2 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href={project.github || project.link || "#"} target="_blank" rel="noreferrer" className="interactive transition flex items-center w-max text-slate-400 hover:text-white">
+                      <i className="fab fa-github text-lg mr-2"></i> GitHub
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}

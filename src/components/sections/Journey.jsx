@@ -3,23 +3,30 @@ import React from 'react';
 const journeyData = [
   {
     id: 1,
-    year: "2023 - Present",
-    title: "Backend Developer (Projects & Freelance)",
-    desc: "Focusing on building complex backend systems with Spring Boot and .NET Core. Completed personal projects such as RideBook (WebSockets, Redis) and E-Commerce Microservices.",
+    year: "2026 - Present",
+    title: "Backend Developer",
+    desc: "Working as a Backend Developer.",
     icon: "fas fa-laptop-code"
   },
   {
     id: 2,
-    year: "2022 - 2023",
-    title: "In-depth Research & Learning",
-    desc: "Diving deep into advanced concepts like Clean Architecture, Design Patterns, Microservices, Message Brokers (Kafka, RabbitMQ), and working with various Databases.",
-    icon: "fas fa-book-open"
+    year: "2025",
+    title: "Transition to Backend Development",
+    desc: "Transitioned to Backend development, focusing on learning microservices architectures.",
+    icon: "fas fa-server"
   },
   {
     id: 3,
-    year: "2021 - 2022",
-    title: "Getting Started with Programming",
-    desc: "Familiarizing with basic languages (Java, C#) and application development platforms. Participated in intensive courses and started building my first small applications.",
+    year: "2024 - 2025",
+    title: "Mobile App Development",
+    desc: "Started learning mobile app development, focusing on Swift and Flutter.",
+    icon: "fas fa-mobile-alt"
+  },
+  {
+    id: 4,
+    year: "2023 - 2024",
+    title: "Programming Fundamentals",
+    desc: "Started learning programming languages, algorithms, and data structures on LeetCode.",
     icon: "fas fa-code"
   }
 ];
