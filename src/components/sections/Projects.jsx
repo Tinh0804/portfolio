@@ -50,6 +50,7 @@ const projectsData = [
       { name: "SQL Server", classes: "bg-yellow-500/10 text-yellow-400 border-yellow-500/30" }
     ],
     link: "https://github.com/Tinh0804/RideBook",
+    demo: "https://ridebook.tinhlelaptrinh.id.vn",
     linkColor: "text-yellow-400 hover:text-primary"
   },
   {
@@ -67,6 +68,7 @@ const projectsData = [
       { name: "PostgreSQL", classes: "bg-rose-500/10 text-rose-400 border-rose-500/30" }
     ],
     link: "https://github.com/Tinh0804/Auction", // Đổi lại link Github thực tế của bạn
+    demo: "https://auctionplatform.tinhlelaptrinh.id.vn",
     linkColor: "text-rose-400 hover:text-pink-400"
   }
 ];
@@ -130,10 +132,12 @@ const Projects = () => {
                     ))}
                   </div>
                   <div className="flex items-center justify-between mt-auto">
-                    <a href={project.demo || "#"} target="_blank" rel="noreferrer" className={`interactive transition flex items-center w-max ${project.linkColor}`}>
-                      Live Demo <i className="fas fa-external-link-alt ml-2 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                    <a href={project.github || project.link || "#"} target="_blank" rel="noreferrer" className="interactive transition flex items-center w-max text-slate-400 hover:text-white">
+                    {project.demo && (
+                      <a href={project.demo} target="_blank" rel="noreferrer" className={`interactive transition flex items-center w-max ${project.linkColor}`}>
+                        Live Demo <i className="fas fa-external-link-alt ml-2 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform"></i>
+                      </a>
+                    )}
+                    <a href={project.github || project.link || "#"} target="_blank" rel="noreferrer" className={`interactive transition flex items-center w-max text-slate-400 hover:text-white ${!project.demo ? 'ml-auto' : ''}`}>
                       <i className="fab fa-github text-lg mr-2"></i> GitHub
                     </a>
                   </div>
