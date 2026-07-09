@@ -87,7 +87,7 @@ const Hero = () => {
             View Project
           </a>
           <a
-            href="https://drive.google.com/file/d/1HsMrFzZnRwr5ZxlYRiyRWi0Q0OVIm-JH/view?usp=sharing" 
+            href="https://drive.google.com/file/d/1ZHK3HQI-EI4kEyMyJ44Nicl2ACCAslx0/view?usp=share_link" 
             target="_blank" 
             rel="noopener noreferrer"
             className="interactive px-8 py-3 glass rounded-full font-semibold hover:bg-slate-800 transition-all hover:-translate-y-1 hover:border-primary/50"

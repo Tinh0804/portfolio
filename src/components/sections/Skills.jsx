@@ -185,35 +185,65 @@ const Skills = () => {
               <h4 className="text-xl font-semibold mb-4 flex items-center">
                 <i className="fas fa-cloud text-orange-400 mr-2"></i> Cloud & DevOps
               </h4>
+
               <div className="flex flex-wrap gap-3">
+                {/* AWS */}
                 <div className="flex items-center p-2 bg-slate-800/50 rounded hover:bg-slate-700/50 transition cursor-default">
                   <span className="flex items-center">
-                    <img 
-                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" 
-                      alt="AWS" 
-                      className="w-5 h-5 mr-2" 
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
+                      alt="AWS"
+                      className="w-5 h-5 mr-2"
                     />
                     AWS EC2/S3
                   </span>
                 </div>
+
+                {/* GCP */}
                 <div className="flex items-center p-2 bg-slate-800/50 rounded hover:bg-slate-700/50 transition cursor-default">
                   <span className="flex items-center">
-                    <img 
-                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" 
-                      alt="Docker" 
-                      className="w-5 h-5 mr-2" 
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"
+                      alt="Google Cloud"
+                      className="w-5 h-5 mr-2"
+                    />
+                    GCP Compute Engine
+                  </span>
+                </div>
+
+                {/* Docker */}
+                <div className="flex items-center p-2 bg-slate-800/50 rounded hover:bg-slate-700/50 transition cursor-default">
+                  <span className="flex items-center">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                      alt="Docker"
+                      className="w-5 h-5 mr-2"
                     />
                     Docker
                   </span>
                 </div>
+
+                {/* Nginx */}
                 <div className="flex items-center p-2 bg-slate-800/50 rounded hover:bg-slate-700/50 transition cursor-default">
                   <span className="flex items-center">
-                    <img 
-                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg" 
-                      alt="CI/CD" 
-                      className="w-5 h-5 mr-2" 
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg"
+                      alt="Nginx"
+                      className="w-5 h-5 mr-2"
                     />
-                    CI/CD
+                    Nginx
+                  </span>
+                </div>
+
+                {/* GitHub Actions */}
+                <div className="flex items-center p-2 bg-slate-800/50 rounded hover:bg-slate-700/50 transition cursor-default">
+                  <span className="flex items-center">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/githubactions/githubactions-original.svg"
+                      alt="GitHub Actions"
+                      className="w-5 h-5 mr-2"
+                    />
+                    GitHub Actions
                   </span>
                 </div>
               </div>

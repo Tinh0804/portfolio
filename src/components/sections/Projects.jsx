@@ -47,7 +47,7 @@ const projectsData = [
       { name: "Spring Boot", classes: "bg-yellow-500/10 text-yellow-400 border-yellow-500/30" },
       { name: "Redis", classes: "bg-yellow-500/10 text-yellow-400 border-yellow-500/30" },
       { name: "Socket.io", classes: "bg-yellow-500/10 text-yellow-400 border-yellow-500/30" },
-      { name: "SQL Server", classes: "bg-yellow-500/10 text-yellow-400 border-yellow-500/30" }
+      { name: "PostgreSQL", classes: "bg-yellow-500/10 text-yellow-400 border-yellow-500/30" }
     ],
     link: "https://github.com/Tinh0804/RideBook",
     demo: "https://ridebook.tinhlelaptrinh.id.vn",
@@ -56,8 +56,8 @@ const projectsData = [
   {
     id: 4,
     title: "Real-time Auction Platform",
-    isImage: false,
-    icon: "🔨",
+    isImage: true,
+    icon: "/assets/images/auctionplatform.png",
     bgGradient: "from-rose-500/20 to-pink-500/20",
     hoverColor: "group-hover:text-rose-400",
     desc: "Real-time online auction system. Supports continuous bidding, auction countdown, and instant result updates without delay.",
