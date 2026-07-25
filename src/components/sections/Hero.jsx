@@ -75,7 +75,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-[#09090b] via-transparent to-[#09090b] z-10 pointer-events-none"></div>
       </div>
 
-      <div className="relative z-20 w-full max-w-5xl mx-auto px-6 py-24 flex flex-col items-center">
+      <div className="relative z-20 w-full max-w-5xl mx-auto px-4 sm:px-6 py-24 flex flex-col items-center">
         
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -93,13 +93,13 @@ const Hero = () => {
           </div>
 
           {/* Elegant Title */}
-          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[6rem] font-bold font-display leading-[1.05] text-white tracking-tight mb-6">
-            Architecting <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400">Digital Systems.</span>
+          <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-[6rem] font-bold font-display leading-[1.05] text-white tracking-tight mb-6">
+            Building Scalable <br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400">Web Experiences.</span>
           </h1>
 
           <p className="text-zinc-400 text-lg md:text-xl max-w-2xl leading-relaxed mb-10 font-light">
-            Hi, I'm <span className="text-zinc-200 font-medium">Lê Hoàng Quách Tỉnh</span>. A Backend Software Engineer specializing in high-performance APIs, microservices, and robust cloud infrastructure.
+            Hi, I'm <span className="text-zinc-200 font-medium">Lê Hoàng Quách Tỉnh</span>. A Full-Stack Engineer merging high-performance backend microservices with dynamic web interfaces and robust cloud deployments.
           </p>
 
           <div className="flex flex-wrap justify-center items-center gap-4">
@@ -111,20 +111,20 @@ const Hero = () => {
             </a>
           </div>
 
-          {/* Core Tech Stack Information (Adds enough info without clutter) */}
+          {/* Core Tech Stack Information */}
           <motion.div 
-            className="flex flex-col sm:flex-row items-center gap-6 mt-16 pt-8 border-t border-white/5"
+            className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mt-12 sm:mt-16 pt-8 border-t border-white/5"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
           >
             <span className="text-zinc-500 font-mono text-[10px] uppercase tracking-widest">Core Stack</span>
-            <div className="flex gap-5 text-zinc-400 text-xl">
-              <i className="fa-brands fa-java hover:text-sky-400 transition-colors cursor-pointer"></i>
-              <i className="fa-brands fa-docker hover:text-sky-400 transition-colors cursor-pointer"></i>
-              <i className="fa-brands fa-aws hover:text-sky-400 transition-colors cursor-pointer"></i>
-              <i className="fa-solid fa-database hover:text-sky-400 transition-colors cursor-pointer"></i>
-              <i className="fa-brands fa-linux hover:text-sky-400 transition-colors cursor-pointer"></i>
+            <div className="flex gap-6 text-2xl">
+              <i className="fa-brands fa-java text-[#f89820] hover:scale-110 transition-transform cursor-pointer" title="Java"></i>
+              <i className="fa-solid fa-leaf text-[#6db33f] hover:scale-110 transition-transform cursor-pointer" title="Spring Boot"></i>
+              <i className="fa-brands fa-docker text-[#0db7ed] hover:scale-110 transition-transform cursor-pointer" title="Docker"></i>
+              <i className="fa-brands fa-aws text-[#ff9900] hover:scale-110 transition-transform cursor-pointer" title="AWS"></i>
+              <i className="fa-solid fa-database text-zinc-300 hover:scale-110 transition-transform cursor-pointer" title="Databases"></i>
             </div>
           </motion.div>
 

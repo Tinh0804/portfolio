@@ -1,5 +1,6 @@
 import React from 'react';
 import Preloader from './components/ui/Preloader';
+import CustomCursor from './components/ui/CustomCursor';
 import BackgroundBlobs from './components/layout/BackgroundBlobs';
 import Navbar from './components/layout/Navbar';
 import Hero from './components/sections/Hero';
@@ -19,6 +20,7 @@ function App() {
 
   return (
     <div className="bg-[#09090b] text-slate-100 overflow-x-hidden font-sans">
+      <CustomCursor />
       <Preloader />
       <BackgroundBlobs />
       <Navbar activeSection={activeSection} />

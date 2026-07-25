@@ -15,7 +15,7 @@ const Skills = () => {
         </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-20">
         
         {/* Section Header */}
         <motion.div 
@@ -29,7 +29,7 @@ const Skills = () => {
             <span className="text-sky-600 font-mono text-sm uppercase tracking-widest">Arsenal</span>
             <div className="h-[1px] w-12 bg-sky-500"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold font-display text-slate-900">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display text-slate-900">
             Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-500">Toolkit.</span>
           </h2>
         </motion.div>
@@ -105,7 +105,7 @@ const Skills = () => {
               <p className="text-slate-500 mb-8">Rapid, secure enterprise scaling.</p>
               
               <div className="flex flex-col gap-4">
-                <TechRow folder="spring" file="spring-original.svg" name="Spring Boot / Security" />
+                <TechRow folder="spring" file="spring-original.svg" name="Spring Boot / Security / Data" />
                 <TechRow folder="dotnetcore" file="dotnetcore-original.svg" name=".NET Core 8" />
               </div>
             </div>
@@ -132,7 +132,7 @@ const Skills = () => {
               <div className="w-full md:w-1/2 flex flex-wrap justify-center md:justify-end gap-6">
                 <TechIcon folder="amazonwebservices" file="amazonwebservices-original-wordmark.svg" name="AWS" isOld lightText />
                 <TechIcon folder="docker" file="docker-original.svg" name="Docker" isOld lightText />
-                <TechIcon folder="kubernetes" file="kubernetes-plain.svg" name="K8s" isOld lightText />
+                <TechIcon folder="github" file="github-original.svg" name="GitHub" isOld lightText />
                 <TechIcon folder="githubactions" file="githubactions-original.svg" name="CI/CD" isOld lightText />
               </div>
             </div>

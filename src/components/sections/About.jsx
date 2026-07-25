@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 const About = () => {
   return (
     <section id="about" className="relative py-24 md:py-32 overflow-hidden bg-[#09090b]">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         
         {/* Section Header */}
         <motion.div 
@@ -17,7 +17,7 @@ const About = () => {
             <div className="h-[1px] w-12 bg-sky-500"></div>
             <span className="text-sky-400 font-mono text-sm uppercase tracking-widest">Get to know me</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold font-display text-white">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display text-white">
             Beyond the <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400">Code.</span>
           </h2>
         </motion.div>
@@ -40,14 +40,13 @@ const About = () => {
                 alt="Lê Hoàng Quách Tỉnh" 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#09090b] via-[#09090b]/40 to-transparent opacity-80"></div>
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="flex items-center gap-3">
+              <div className="absolute bottom-6 left-6 flex">
+                <div className="flex items-center gap-3 px-4 py-2 bg-black/40 backdrop-blur-md rounded-full border border-white/10 shadow-lg">
                   <span className="relative flex h-3 w-3">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
                   </span>
-                  <span className="text-white font-medium text-sm drop-shadow-md">Available for work</span>
+                  <span className="text-white font-medium text-sm">Available for work</span>
                 </div>
               </div>
             </div>
@@ -111,10 +110,10 @@ const About = () => {
             transition={{ duration: 0.7, delay: 0.4 }}
           >
             <div className="w-12 h-12 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-400 text-xl mb-6">
-              <i className="fa-solid fa-database"></i>
+              <i className="fa-solid fa-cogs"></i>
             </div>
-            <h3 className="text-white font-medium mb-2 text-lg">Data Engineering</h3>
-            <p className="text-sm text-zinc-500 font-light">Highly optimized queries and schemas.</p>
+            <h3 className="text-white font-medium mb-2 text-lg">Backend Engineering</h3>
+            <p className="text-sm text-zinc-500 font-light">Building robust, scalable, and secure APIs.</p>
           </motion.div>
 
         </div>

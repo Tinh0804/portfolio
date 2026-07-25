@@ -1,51 +1,77 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { motion, useMotionValue } from 'motion/react';
 
 const CustomCursor = () => {
-  const dotRef = useRef(null);
-  const outlineRef = useRef(null);
+  // useMotionValue bypasses React state for 0-latency tracking
+  const cursorX = useMotionValue(-100);
+  const cursorY = useMotionValue(-100);
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
-    // Cập nhật tọa độ chuột trực tiếp vào DOM thay vì dùng state (tránh re-render liên tục gây lag)
     const updateMousePosition = (e) => {
-      if (dotRef.current && outlineRef.current) {
-        dotRef.current.style.left = `${e.clientX}px`;
-        dotRef.current.style.top = `${e.clientY}px`;
-        
-        outlineRef.current.style.left = `${e.clientX}px`;
-        outlineRef.current.style.top = `${e.clientY}px`;
-      }
+      // Instantly update cursor position without re-rendering
+      cursorX.set(e.clientX - (isHovering ? 32 : 16));
+      cursorY.set(e.clientY - (isHovering ? 32 : 16));
     };
 
-    // Kiểm tra xem chuột có đang trỏ vào element nào có thể tương tác không
     const handleMouseOver = (e) => {
-      // Tìm các thẻ a, button, hoặc các class có tính tương tác
-      if (e.target.closest('a, button, .interactive, input, textarea')) {
+      const target = e.target;
+      if (
+        target.tagName.toLowerCase() === 'a' ||
+        target.tagName.toLowerCase() === 'button' ||
+        target.closest('a') ||
+        target.closest('button')
+      ) {
         setIsHovering(true);
+        // Pre-adjust position for scale center
+        cursorX.set(e.clientX - 32);
+        cursorY.set(e.clientY - 32);
       } else {
         setIsHovering(false);
+        cursorX.set(e.clientX - 16);
+        cursorY.set(e.clientY - 16);
       }
     };
 
-    window.addEventListener('mousemove', updateMousePosition);
-    window.addEventListener('mouseover', handleMouseOver);
+    window.addEventListener('mousemove', updateMousePosition, { passive: true });
+    window.addEventListener('mouseover', handleMouseOver, { passive: true });
 
     return () => {
       window.removeEventListener('mousemove', updateMousePosition);
       window.removeEventListener('mouseover', handleMouseOver);
     };
-  }, []);
+  }, [cursorX, cursorY, isHovering]);
+
+  if (typeof window !== 'undefined' && window.innerWidth < 768) {
+    return null;
+  }
 
   return (
     <>
-      <div 
-        ref={dotRef}
-        className={`cursor-dot hidden md:block ${isHovering ? 'hovering' : ''}`}
-      ></div>
-      <div 
-        ref={outlineRef}
-        className={`cursor-outline hidden md:block ${isHovering ? 'hovering' : ''}`}
-      ></div>
+      <style>
+        {`
+          @media (min-width: 768px) {
+            * { cursor: none !important; }
+          }
+        `}
+      </style>
+      
+      <motion.div
+        className="fixed top-0 left-0 rounded-full bg-white pointer-events-none z-[9999] hidden md:block"
+        style={{
+          width: '32px',
+          height: '32px',
+          mixBlendMode: 'difference',
+          x: cursorX,
+          y: cursorY,
+        }}
+        animate={{
+          scale: isHovering ? 2 : 1,
+        }}
+        transition={{
+          scale: { type: "spring", stiffness: 500, damping: 28 }
+        }}
+      />
     </>
   );
 };

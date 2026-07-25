@@ -4,28 +4,18 @@ import { motion, useScroll, useTransform } from 'motion/react';
 const projectsData = [
   {
     id: 1,
-    title: "E-Commerce Microservices",
+    title: "Real-time Auction Platform",
     isImage: true,
-    icon: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200", // Server / Data network
-    bgClass: "bg-gradient-to-br from-blue-500 to-indigo-600",
-    colorClass: "text-blue-500",
-    desc: "An e-commerce platform based on a highly scalable microservices architecture. It encompasses secure authentication, dynamic product catalogs, and robust order management systems.",
-    techs: ["Spring Boot", "Docker", "MongoDB", "Eureka"],
-    link: "https://github.com/Tinh0804/E-Commerce"
+    icon: "/assets/images/auctionplatform.png",
+    bgClass: "bg-gradient-to-br from-rose-500 to-pink-600",
+    colorClass: "text-rose-500",
+    desc: "A high-performance real-time online auction system. Capable of handling continuous live bidding, millisecond-precision countdowns, and instant broadcast of auction results.",
+    techs: ["Spring Boot", "Socket.io", "Redis", "PostgreSQL"],
+    link: "https://github.com/Tinh0804/Auction",
+    demo: "https://auctionplatform.tinhlelaptrinh.id.vn"
   },
   {
     id: 2,
-    title: "English Learning App",
-    isImage: true,
-    icon: "/assets/images/learninglanguage.png",
-    bgClass: "bg-gradient-to-br from-emerald-400 to-teal-500",
-    colorClass: "text-emerald-500",
-    desc: "Cross-platform English learning application built on a gamification model. Features include real-time progress tracking, a virtual shop system, and AI-driven learning support.",
-    techs: [".NET Core", "SQL Server", "SignalR", "AI APIs"],
-    link: "https://github.com/Tinh0804/Web_Advance"
-  },
-  {
-    id: 3,
     title: "RideBook",
     isImage: true,
     icon: "/assets/images/ridebook.png",
@@ -37,16 +27,26 @@ const projectsData = [
     demo: "https://ridebook.tinhlelaptrinh.id.vn"
   },
   {
-    id: 4,
-    title: "Real-time Auction Platform",
+    id: 3,
+    title: "E-Commerce Microservices",
     isImage: true,
-    icon: "/assets/images/auctionplatform.png",
-    bgClass: "bg-gradient-to-br from-rose-500 to-pink-600",
-    colorClass: "text-rose-500",
-    desc: "A high-performance real-time online auction system. Capable of handling continuous live bidding, millisecond-precision countdowns, and instant broadcast of auction results.",
-    techs: ["Spring Boot", "Socket.io", "Redis", "PostgreSQL"],
-    link: "https://github.com/Tinh0804/Auction",
-    demo: "https://auctionplatform.tinhlelaptrinh.id.vn"
+    icon: "/assets/images/ecommerce.png",
+    bgClass: "bg-gradient-to-br from-blue-500 to-indigo-600",
+    colorClass: "text-blue-500",
+    desc: "An e-commerce platform based on a highly scalable microservices architecture. It encompasses secure authentication, dynamic product catalogs, and robust order management systems.",
+    techs: ["Spring Boot", "Docker", "MongoDB", "Eureka"],
+    link: "https://github.com/Tinh0804/E-Commerce"
+  },
+  {
+    id: 4,
+    title: "English Learning App",
+    isImage: true,
+    icon: "/assets/images/learninglanguage.png",
+    bgClass: "bg-gradient-to-br from-emerald-400 to-teal-500",
+    colorClass: "text-emerald-500",
+    desc: "Cross-platform English learning application built on a gamification model. Features include real-time progress tracking, a virtual shop system, and AI-driven learning support.",
+    techs: [".NET Core", "SQL Server", "SignalR", "AI APIs"],
+    link: "https://github.com/Tinh0804/Web_Advance"
   }
 ];
 
@@ -78,12 +78,12 @@ const ProjectCard = ({ project, index }) => {
         {/* Overlay that reveals on hover */}
         <div className="absolute inset-0 bg-zinc-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
 
-        <motion.div style={{ y: imageY }} className="w-full h-[120%] -top-[10%] relative origin-center">
+        <motion.div className="w-full h-full relative origin-center flex items-center justify-center p-2 md:p-4">
           {project.isImage ? (
             <img 
               src={project.icon} 
               alt={project.title} 
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" 
+              className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 ease-out rounded-xl"
               onError={(e) => {
                 // Fallback if image doesn't exist to prevent ugly broken images
                 e.target.style.display = 'none';
@@ -162,7 +162,7 @@ const ProjectCard = ({ project, index }) => {
 const Projects = () => {
   return (
     <section id="projects" className="relative py-24 md:py-32 bg-zinc-50 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Section Header */}
         <motion.div 
@@ -176,7 +176,7 @@ const Projects = () => {
             <span className="text-zinc-500 font-mono text-sm uppercase tracking-widest">Showcase</span>
             <div className="h-[1px] w-12 bg-zinc-300"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold font-display text-zinc-900">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display text-zinc-900">
             Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-500">Works.</span>
           </h2>
         </motion.div>

@@ -5,25 +5,25 @@ const journeyData = [
   {
     id: 1,
     year: "2026 - Present",
-    title: "Backend Engineer",
-    desc: "Spearheading the transition to highly scalable microservices. Focusing on optimizing database transactions, implementing robust caching strategies, and establishing strict CI/CD pipelines.",
-    tech: ["System Design", "Docker", "AWS", "Redis"],
-    icon: "fa-solid fa-server"
+    title: "Fullstack Engineer",
+    desc: "Expanding expertise across the entire application stack. Seamlessly integrating highly scalable backend microservices with modern, responsive, and dynamic frontend architectures.",
+    tech: ["System Design", "Spring Boot", "AWS","React", "Tailwind CSS","Redis","GCP"],
+    icon: "fa-solid fa-layer-group"
   },
   {
     id: 2,
     year: "2025",
-    title: "Backend Transition",
-    desc: "Deep dove into backend development ecosystems. Mastered RESTful APIs, authentication mechanisms, and complex relational database schemas.",
-    tech: ["Java", "Spring Boot", "PostgreSQL"],
-    icon: "fa-solid fa-database"
+    title: "Backend Engineer",
+    desc: "Spearheading the transition to highly scalable microservices. Focusing on optimizing database transactions, implementing robust caching strategies, and establishing strict CI/CD pipelines.",
+    tech: ["Java", "Spring Boot", "Docker", "PostgreSQL"],
+    icon: "fa-solid fa-server"
   },
   {
     id: 3,
     year: "2024 - 2025",
     title: "Mobile App Development",
     desc: "Explored the mobile ecosystem, building cross-platform applications with fluid UIs and integrating complex third-party APIs.",
-    tech: ["Flutter", "Swift", "Firebase"],
+    tech: ["Flutter", "SwiftUI", "Firebase"],
     icon: "fa-solid fa-mobile-screen-button"
   },
   {
@@ -43,7 +43,7 @@ const Journey = () => {
   return (
     <section id="journey" className="relative py-24 md:py-32 bg-[#09090b] overflow-hidden">
       
-      <div className="max-w-5xl mx-auto px-6 relative z-10">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Section Header */}
         <motion.div 
@@ -56,7 +56,7 @@ const Journey = () => {
             <div className="h-[1px] w-12 bg-sky-500"></div>
             <span className="text-sky-400 font-mono text-sm uppercase tracking-widest">Evolution</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold font-display text-white">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display text-white">
             My <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400">Journey.</span>
           </h2>
         </motion.div>

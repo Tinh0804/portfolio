@@ -35,7 +35,7 @@ const Contact = () => {
       <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-sky-500/5 blur-[120px] rounded-full pointer-events-none -z-10"></div>
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none -z-10"></div>
 
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Section Header */}
         <motion.div 
@@ -49,7 +49,7 @@ const Contact = () => {
             <span className="text-sky-400 font-mono text-sm uppercase tracking-widest">Contact</span>
             <div className="h-[1px] w-12 bg-sky-500"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold font-display text-white">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display text-white">
             Let's <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400">Connect.</span>
           </h2>
           <p className="text-zinc-400 text-lg max-w-2xl mx-auto mt-6 font-light">

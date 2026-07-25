@@ -6,7 +6,9 @@ const techs1 = [
   { name: "C#", icon: "csharp/csharp-original.svg" },
   { name: ".NET Core", icon: "dotnetcore/dotnetcore-original.svg" },
   { name: "Python", icon: "python/python-original.svg" },
-  { name: "Go", icon: "go/go-original.svg" },
+  { name: "JavaScript", icon: "javascript/javascript-original.svg" },
+  { name: "Swift", icon: "swift/swift-original.svg" },
+  { name: "Dart", icon: "dart/dart-original.svg" },
 ];
 
 const techs2 = [
@@ -14,14 +16,13 @@ const techs2 = [
   { name: "PostgreSQL", icon: "postgresql/postgresql-original.svg" },
   { name: "MongoDB", icon: "mongodb/mongodb-original.svg" },
   { name: "Redis", icon: "redis/redis-original.svg" },
-  { name: "Elasticsearch", icon: "elasticsearch/elasticsearch-original.svg" },
 ];
 
 const techs3 = [
   { name: "Docker", icon: "docker/docker-original.svg" },
   { name: "AWS", icon: "amazonwebservices/amazonwebservices-original-wordmark.svg" },
   { name: "GCP", icon: "googlecloud/googlecloud-original.svg" },
-  { name: "Kubernetes", icon: "kubernetes/kubernetes-plain.svg" },
+  { name: "GitHub", icon: "github/github-original.svg" },
   { name: "Linux", icon: "linux/linux-original.svg" },
   { name: "Nginx", icon: "nginx/nginx-original.svg" },
 ];
