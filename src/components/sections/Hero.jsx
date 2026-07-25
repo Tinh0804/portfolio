@@ -1,127 +1,134 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { Canvas } from '@react-three/fiber';
+import { Float, MeshDistortMaterial, Sparkles } from '@react-three/drei';
+import { motion } from 'motion/react';
+
+const MajesticWavesScene = () => {
+  return (
+    <>
+      <ambientLight intensity={1} />
+      
+      {/* Floating Sparkles tinted with a soft icy blue */}
+      <Sparkles count={300} scale={15} size={1} speed={0.2} opacity={0.2} color="#e0f2fe" />
+      
+      {/* Graceful flowing motion */}
+      <Float speed={1.2} rotationIntensity={0.15} floatIntensity={0.5} position={[0, -2, -2]}>
+        <group rotation={[-Math.PI / 2.2, 0, 0]} scale={2.5}>
+          
+          {/* Front Wave - Soft Silver/White */}
+          <mesh position={[0, 0, 0.8]}>
+            <planeGeometry args={[15, 15, 64, 64]} />
+            <MeshDistortMaterial 
+              color="#f8fafc" 
+              wireframe={true} 
+              transparent 
+              opacity={0.4} 
+              distort={0.35} 
+              speed={1.5} 
+            />
+          </mesh>
+          
+          {/* Mid Wave - Gentle Sky Blue */}
+          <mesh position={[0, 0, 0.4]}>
+            <planeGeometry args={[15, 15, 64, 64]} />
+            <MeshDistortMaterial 
+              color="#7dd3fc" 
+              wireframe={true} 
+              transparent 
+              opacity={0.25} 
+              distort={0.45} 
+              speed={1.2} 
+            />
+          </mesh>
+          
+          {/* Deep Wave - Muted Indigo/Blue */}
+          <mesh position={[0, 0, 0]}>
+            <planeGeometry args={[15, 15, 64, 64]} />
+            <MeshDistortMaterial 
+              color="#38bdf8" 
+              wireframe={true} 
+              transparent 
+              opacity={0.1} 
+              distort={0.55} 
+              speed={0.8} 
+            />
+          </mesh>
+          
+        </group>
+      </Float>
+    </>
+  );
+};
 
 const Hero = () => {
-  // --- LOGIC HIỆU ỨNG TYPEWRITER ---
-  const phrases = [
-    "Backend Software Engineer",
-    "Java Developer",
-    "Full Stack Developer"
-  ];
-
-  const [text, setText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [loopNum, setLoopNum] = useState(0);
-  const [typingSpeed, setTypingSpeed] = useState(100);
-
-  useEffect(() => {
-    const i = loopNum % phrases.length;
-    const fullText = phrases[i];
-
-    const handleTyping = () => {
-      setText(
-        isDeleting
-          ? fullText.substring(0, text.length - 1)
-          : fullText.substring(0, text.length + 1)
-      );
-
-      setTypingSpeed(isDeleting ? 40 : 100);
-
-      if (!isDeleting && text === fullText) {
-        setTimeout(() => setIsDeleting(true), 2000); // Dừng lại 2s trước khi xoá
-      } else if (isDeleting && text === '') {
-        setIsDeleting(false);
-        setLoopNum(loopNum + 1);
-      }
-    };
-
-    const timer = setTimeout(handleTyping, typingSpeed);
-    return () => clearTimeout(timer);
-  }, [text, isDeleting, loopNum, typingSpeed]);
-  // ---------------------------------
-
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center px-4 pt-16">
-      <div className="max-w-5xl mx-auto text-center z-10 reveal">
+    <section id="home" className="relative min-h-[100dvh] w-full bg-[#09090b] overflow-hidden flex flex-col justify-center items-center text-center">
+      
+      {/* Background 3D Majestic Waves (Gentle/Soft) */}
+      <div className="absolute inset-0 z-0">
+        <Canvas dpr={[1, 1.5]} camera={{ position: [0, 0, 8], fov: 45 }} gl={{ antialias: true, powerPreference: "high-performance" }}>
+          <MajesticWavesScene />
+        </Canvas>
         
-        {/* Avatar */}
-        <div className="float mb-8">
-          <div className="w-48 h-48 mx-auto rounded-full glass border-4 border-primary/30 flex items-center justify-center text-8xl shadow-[0_0_40px_rgba(0,217,255,0.2)]">
-            <img
-              src="/assets/images/avatar.jpeg"
-              alt="Avatar"
-              className="w-40 h-40 rounded-full object-cover border-2 border-primary"
-              onError={(e) => {
-                e.target.src = 'https://ui-avatars.com/api/?name=Lê+Tỉnh&background=0D8ABC&color=fff';
-              }}
-            />
+        {/* Soft Gradients to blend edges */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#09090b] via-transparent to-[#09090b] z-10 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#09090b] via-transparent to-[#09090b] z-10 pointer-events-none"></div>
+      </div>
+
+      <div className="relative z-20 w-full max-w-5xl mx-auto px-6 py-24 flex flex-col items-center">
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex flex-col items-center"
+        >
+          {/* Status Badge */}
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/5 mb-8 backdrop-blur-md">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
+            </span>
+            <span className="text-zinc-400 font-mono text-[10px] md:text-xs uppercase tracking-wider">Available for new opportunities</span>
           </div>
-        </div>
 
-        {/* Tên */}
-        <h1 className="text-5xl md:text-7xl font-bold mb-4">
-          Lê Hoàng <span className="gradient-text">Quách Tỉnh</span>
-        </h1>
+          {/* Elegant Title */}
+          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[6rem] font-bold font-display leading-[1.05] text-white tracking-tight mb-6">
+            Architecting <br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400">Digital Systems.</span>
+          </h1>
 
-        {/* Typewriter Text (Đã cập nhật) */}
-        <p className="text-xl md:text-2xl mb-6 font-semibold min-h-[32px] flex items-center justify-center">
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-400 to-secondary">
-            {text}
-          </span>
-          <span className="text-primary animate-pulse ml-1">|</span>
-        </p>
+          <p className="text-zinc-400 text-lg md:text-xl max-w-2xl leading-relaxed mb-10 font-light">
+            Hi, I'm <span className="text-zinc-200 font-medium">Lê Hoàng Quách Tỉnh</span>. A Backend Software Engineer specializing in high-performance APIs, microservices, and robust cloud infrastructure.
+          </p>
 
-        {/* Mô tả */}
-        <p className="text-lg text-slate-300 max-w-2xl mx-auto mb-8 leading-relaxed">
-          Passionate about building scalable Web APIs and Microservices with
-          <br />
-          <span className="text-primary font-semibold">Spring Boot</span> &{' '}
-          <span className="text-purple-400 font-semibold">.NET Core</span>
-        </p>
+          <div className="flex flex-wrap justify-center items-center gap-4">
+            <a href="#projects" className="px-8 py-4 bg-white/10 text-white border border-white/5 font-semibold rounded-lg hover:bg-white/15 transition-colors backdrop-blur-sm">
+              Explore Works
+            </a>
+            <a href="#contact" className="px-8 py-4 bg-transparent text-zinc-300 hover:text-white font-medium rounded-lg transition-colors">
+              Contact Me <i className="fa-solid fa-arrow-right ml-2 text-sm"></i>
+            </a>
+          </div>
 
-        {/* Nút Call to Action */}
-        <div className="flex flex-wrap gap-4 justify-center">
-          <a
-            href="#projects"
-            className="interactive px-8 py-3 bg-gradient-to-r from-primary to-secondary rounded-full font-semibold hover:shadow-lg hover:shadow-primary/50 transition-all hover:-translate-y-1"
+          {/* Core Tech Stack Information (Adds enough info without clutter) */}
+          <motion.div 
+            className="flex flex-col sm:flex-row items-center gap-6 mt-16 pt-8 border-t border-white/5"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
           >
-            View Project
-          </a>
-          <a
-            href="https://drive.google.com/file/d/1ZHK3HQI-EI4kEyMyJ44Nicl2ACCAslx0/view?usp=share_link" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="interactive px-8 py-3 glass rounded-full font-semibold hover:bg-slate-800 transition-all hover:-translate-y-1 hover:border-primary/50"
-          >
-            See CV
-          </a>
-        </div>
+            <span className="text-zinc-500 font-mono text-[10px] uppercase tracking-widest">Core Stack</span>
+            <div className="flex gap-5 text-zinc-400 text-xl">
+              <i className="fa-brands fa-java hover:text-sky-400 transition-colors cursor-pointer"></i>
+              <i className="fa-brands fa-docker hover:text-sky-400 transition-colors cursor-pointer"></i>
+              <i className="fa-brands fa-aws hover:text-sky-400 transition-colors cursor-pointer"></i>
+              <i className="fa-solid fa-database hover:text-sky-400 transition-colors cursor-pointer"></i>
+              <i className="fa-brands fa-linux hover:text-sky-400 transition-colors cursor-pointer"></i>
+            </div>
+          </motion.div>
 
-        {/* Social Links */}
-        <div className="flex gap-6 justify-center mt-10">
-          <a
-            href="https://github.com/Tinh0804"
-            target="_blank"
-            rel="noreferrer"
-            className="interactive text-3xl hover:text-primary transition hover:-translate-y-1"
-          >
-            <i className="fab fa-github"></i>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/lê-hoàng-quách-tỉnh-56a0a0376"
-            target="_blank"
-            rel="noreferrer"
-            className="interactive text-3xl hover:text-primary transition hover:-translate-y-1"
-          >
-            <i className="fab fa-linkedin"></i>
-          </a>
-          <a
-            href="mailto:lhqtinh2005@gmail.com"
-            className="interactive text-3xl hover:text-primary transition hover:-translate-y-1"
-          >
-            <i className="fas fa-envelope"></i>
-          </a>
-        </div>
-        
+        </motion.div>
       </div>
     </section>
   );

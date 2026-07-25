@@ -1,47 +1,36 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #00D9FF;
-  --color-secondary: #6366f1;
+  --color-bg: #09090b;
+  --color-primary: #38bdf8;
+  --color-secondary: #818cf8;
+  --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-display: 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
 @layer base {
-  * {
-    font-family: 'Inter', sans-serif;
+  body {
+    background-color: var(--color-bg);
+    color: #f3f4f6;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Tùy chỉnh thanh cuộn (Scrollbar) */
+  /* Custom Scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
-
   ::-webkit-scrollbar-track {
-    background: #0f172a;
+    background: #000000;
   }
-
   ::-webkit-scrollbar-thumb {
-    background: #334155;
+    background: #333333;
     border-radius: 4px;
   }
-
   ::-webkit-scrollbar-thumb:hover {
-    background: #00D9FF;
-  }
-
-  /* Ẩn con trỏ mặc định trên Desktop để dùng con trỏ Custom */
-  @media (min-width: 768px) {
-    body {
-      cursor: none;
-    }
-
-    a,
-    button,
-    input,
-    textarea {
-      cursor: none;
-    }
+    background: #666666;
   }
 
   html {
@@ -50,150 +39,22 @@
 }
 
 @layer utilities {
-  .gradient-text {
-    background: linear-gradient(135deg, #00D9FF 0%, #6366f1 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .font-display {
+    font-family: var(--font-display);
+  }
+  
+  .font-mono {
+    font-family: var(--font-mono);
   }
 
-  .glass {
-    background: rgba(15, 23, 42, 0.6);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  .text-outline {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.4);
+    color: transparent;
   }
-
-
-  .blob {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.3;
-    animation: blob 7s infinite;
+  
+  .text-outline:hover {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.9);
+    color: transparent;
+    transition: all 0.3s ease;
   }
-
-  @keyframes blob {
-
-    0%,
-    100% {
-      transform: translate(0, 0) scale(1);
-    }
-
-    33% {
-      transform: translate(30px, -50px) scale(1.1);
-    }
-
-    66% {
-      transform: translate(-20px, 20px) scale(0.9);
-    }
-  }
-
-  /* Tối ưu hiệu ứng Hover Card */
-  .card-hover {
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
-
-  .card-hover:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px -10px rgba(0, 217, 255, 0.3);
-    border-color: rgba(0, 217, 255, 0.4);
-  }
-
-  @keyframes float {
-
-    0%,
-    100% {
-      transform: translateY(0px);
-    }
-
-    50% {
-      transform: translateY(-20px);
-    }
-  }
-
-  .float {
-    animation: float 4s ease-in-out infinite;
-  }
-
-  .skill-bar {
-    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .nav-link {
-    position: relative;
-  }
-
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #00D9FF, #6366f1);
-    transition: width 0.3s ease-out;
-  }
-
-  .nav-link:hover::after,
-  .nav-link.active::after {
-    width: 100%;
-  }
-
-  .nav-link.text-primary::after {
-    width: 100%;
-  }
-}
-
-/* --- SCROLL REVEAL (Hiệu ứng cuộn) --- */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* --- CUSTOM CURSOR --- */
-.cursor-dot,
-.cursor-outline {
-  position: fixed;
-  top: 0;
-  left: 0;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  z-index: 9999;
-  pointer-events: none;
-}
-
-/* Chấm nhỏ ở giữa */
-.cursor-dot {
-  width: 8px;
-  height: 8px;
-  background-color: #00D9FF;
-  transition: transform 0.2s ease-out, background-color 0.2s ease-out;
-}
-
-/* Vòng tròn bên ngoài */
-.cursor-outline {
-  width: 40px;
-  height: 40px;
-  border: 2px solid rgba(0, 217, 255, 0.5);
-  /* Bám sát chuột tuyệt đối không có độ trễ (delay) */
-  transition: transform 0.15s ease-out, width 0.2s ease-out, height 0.2s ease-out, border-color 0.2s ease-out;
-}
-
-/* --- HIỆU ỨNG KHI HOVER --- */
-.cursor-dot.hovering {
-  transform: translate(-50%, -50%) scale(0);
-}
-
-.cursor-outline.hovering {
-  width: 60px;
-  height: 60px;
-  background-color: rgba(0, 217, 255, 0.1);
-  border-color: #00D9FF;
-  transform: translate(-50%, -50%) scale(1.2);
 }

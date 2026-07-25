@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "design-taste-frontend": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "skillPath": "skills/taste-skill/SKILL.md",
+      "computedHash": "6d838b246d0e35d0b53f4f23f98ba7a1dd561937e64f7d0c7553b0928e376c3e"
+    },
+    "tan-cinematic-portfolio": {
+      "source": "ngoctanz/cinematic-enhanced-portfolio",
+      "sourceType": "github",
+      "skillPath": "skills/tan-cinematic-portfolio/SKILL.md",
+      "computedHash": "3b35a05d8b4ae6b9c4af47dd3e8e2a09c7ef7d973e82c14b52d382f3c9293423"
+    }
+  }
+}

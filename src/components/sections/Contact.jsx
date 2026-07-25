@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -19,35 +20,64 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative py-20 px-4 bg-slate-900/50">
-      <div className="max-w-6xl mx-auto">
-        
-        {/* Section Title */}
-        <div className="text-center mb-16 reveal">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Let's <span className="gradient-text">Connect</span>
-          </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-            Do you have a project in mind or want to discuss technology? Send me a message and I'll get back to you as soon as possible!
-          </p>
-        </div>
+    <section id="contact" className="relative pt-32 pb-24 overflow-hidden bg-[#09090b]">
+      
+      {/* Light to Dark Transition Wave (Fixed) */}
+      <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] z-0">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-[60px] md:h-[120px]">
+          <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="#fafafa" opacity=".25"></path>
+          <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="#fafafa" opacity=".5"></path>
+          <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="#fafafa"></path>
+        </svg>
+      </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+      {/* Decorative Glow */}
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-sky-500/5 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
+        
+        {/* Section Header */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-20 text-center flex flex-col items-center mt-12"
+        >
+          <div className="flex items-center gap-4 mb-4">
+            <div className="h-[1px] w-12 bg-sky-500"></div>
+            <span className="text-sky-400 font-mono text-sm uppercase tracking-widest">Contact</span>
+            <div className="h-[1px] w-12 bg-sky-500"></div>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold font-display text-white">
+            Let's <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400">Connect.</span>
+          </h2>
+          <p className="text-zinc-400 text-lg max-w-2xl mx-auto mt-6 font-light">
+            Whether you have a groundbreaking project idea or just want to discuss backend architecture, my inbox is always open.
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-5 gap-12 lg:gap-20 items-start">
           
-          {/* LEFT COLUMN: CONTACT INFO */}
-          <div className="space-y-4 reveal" style={{ transitionDelay: '100ms' }}>
-            
+          {/* LEFT COLUMN: CONTACT INFO (2 cols) */}
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="md:col-span-2 space-y-6"
+          >
             {/* Email */}
             <a
               href="mailto:lhqtinh2005@gmail.com"
-              className="flex items-center p-4 glass rounded-xl card-hover group interactive"
+              className="flex items-center p-6 bg-white/[0.02] border border-white/5 rounded-2xl hover:bg-white/[0.04] hover:border-sky-500/30 transition-all duration-300 group"
             >
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center shrink-0 mr-4 border border-primary/20 group-hover:bg-primary/20 transition-colors duration-300">
-                <i className="fas fa-envelope text-xl text-primary group-hover:-rotate-12 transition-transform duration-300"></i>
+              <div className="w-14 h-14 bg-sky-500/10 rounded-full flex items-center justify-center shrink-0 mr-5 border border-sky-500/20 group-hover:bg-sky-500/20 transition-colors duration-300 shadow-[0_0_15px_rgba(56,189,248,0.1)]">
+                <i className="fas fa-envelope text-2xl text-sky-400 group-hover:-rotate-12 group-hover:scale-110 transition-transform duration-300"></i>
               </div>
               <div>
-                <h4 className="text-xs text-slate-400 mb-0.5">Email</h4>
-                <p className="font-semibold text-sm text-slate-200 group-hover:text-primary transition-colors">lhqtinh2005@gmail.com</p>
+                <h4 className="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-1">Email</h4>
+                <p className="font-semibold text-zinc-200 group-hover:text-white transition-colors">lhqtinh2005@gmail.com</p>
               </div>
             </a>
 
@@ -56,38 +86,44 @@ const Contact = () => {
               href="https://www.linkedin.com/in/lê-hoàng-quách-tỉnh-56a0a0376"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center p-4 glass rounded-xl card-hover group interactive"
+              className="flex items-center p-6 bg-white/[0.02] border border-white/5 rounded-2xl hover:bg-white/[0.04] hover:border-indigo-500/30 transition-all duration-300 group"
             >
-              <div className="w-12 h-12 bg-blue-500/10 rounded-full flex items-center justify-center shrink-0 mr-4 border border-blue-500/20 group-hover:bg-blue-500/20 transition-colors duration-300">
-                <i className="fab fa-linkedin-in text-xl text-blue-500 group-hover:scale-110 transition-transform duration-300"></i>
+              <div className="w-14 h-14 bg-indigo-500/10 rounded-full flex items-center justify-center shrink-0 mr-5 border border-indigo-500/20 group-hover:bg-indigo-500/20 transition-colors duration-300 shadow-[0_0_15px_rgba(99,102,241,0.1)]">
+                <i className="fab fa-linkedin-in text-2xl text-indigo-400 group-hover:scale-110 transition-transform duration-300"></i>
               </div>
               <div>
-                <h4 className="text-xs text-slate-400 mb-0.5">LinkedIn</h4>
-                <p className="font-semibold text-sm text-slate-200 group-hover:text-blue-400 transition-colors">Lê Hoàng Quách Tỉnh</p>
+                <h4 className="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-1">LinkedIn</h4>
+                <p className="font-semibold text-zinc-200 group-hover:text-white transition-colors">Lê Hoàng Quách Tỉnh</p>
               </div>
             </a>
 
             {/* Location */}
-            <div className="flex items-center p-4 glass rounded-xl card-hover group cursor-default">
-              <div className="w-12 h-12 bg-rose-500/10 rounded-full flex items-center justify-center shrink-0 mr-4 border border-rose-500/20 group-hover:bg-rose-500/20 transition-colors duration-300">
-                <i className="fas fa-map-marker-alt text-xl text-rose-500 group-hover:animate-bounce transition-all duration-300"></i>
+            <div className="flex items-center p-6 bg-white/[0.02] border border-white/5 rounded-2xl cursor-default group">
+              <div className="w-14 h-14 bg-emerald-500/10 rounded-full flex items-center justify-center shrink-0 mr-5 border border-emerald-500/20 transition-colors duration-300 shadow-[0_0_15px_rgba(16,185,129,0.1)]">
+                <i className="fas fa-map-marker-alt text-2xl text-emerald-400 group-hover:animate-bounce transition-all duration-300"></i>
               </div>
               <div>
-                <h4 className="text-xs text-slate-400 mb-0.5">Location</h4>
-                <p className="font-semibold text-sm text-slate-200 group-hover:text-rose-400 transition-colors">374 Dien Bien Phu, Thanh Khe, Da Nang, Vietnam</p>
+                <h4 className="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-1">Location</h4>
+                <p className="font-semibold text-zinc-200 group-hover:text-white transition-colors">Thanh Khe, Da Nang, Vietnam</p>
               </div>
             </div>
 
-          </div>
+          </motion.div>
 
-          {/* RIGHT COLUMN: CONTACT FORM */}
-          <div className="glass p-8 rounded-3xl reveal" style={{ transitionDelay: '200ms' }}>
+          {/* RIGHT COLUMN: CONTACT FORM (3 cols) */}
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="md:col-span-3 bg-white/[0.02] border border-white/5 p-8 md:p-10 rounded-3xl backdrop-blur-sm"
+          >
             <form className="space-y-6" onSubmit={handleSubmit}>
               
               <div className="grid md:grid-cols-2 gap-6">
                 {/* Name */}
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-300">Your Name</label>
+                  <label className="text-sm font-medium text-zinc-400">Your Name</label>
                   <input 
                     type="text" 
                     name="name"
@@ -95,13 +131,13 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder="John Doe"
                     required
-                    className="w-full bg-slate-900/50 border border-slate-700/50 rounded-xl px-4 py-3 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
+                    className="w-full bg-[#000000] border border-white/10 rounded-xl px-5 py-4 text-zinc-200 placeholder:text-zinc-600 focus:outline-none focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/50 transition-all shadow-inner"
                   />
                 </div>
                 
                 {/* Email */}
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-300">Your Email</label>
+                  <label className="text-sm font-medium text-zinc-400">Your Email</label>
                   <input 
                     type="email" 
                     name="email"
@@ -109,14 +145,14 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder="john@example.com"
                     required
-                    className="w-full bg-slate-900/50 border border-slate-700/50 rounded-xl px-4 py-3 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
+                    className="w-full bg-[#000000] border border-white/10 rounded-xl px-5 py-4 text-zinc-200 placeholder:text-zinc-600 focus:outline-none focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/50 transition-all shadow-inner"
                   />
                 </div>
               </div>
 
               {/* Subject */}
               <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-300">Subject</label>
+                <label className="text-sm font-medium text-zinc-400">Subject</label>
                 <input 
                   type="text" 
                   name="subject"
@@ -124,13 +160,13 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="How can I help you?"
                   required
-                  className="w-full bg-slate-900/50 border border-slate-700/50 rounded-xl px-4 py-3 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
+                  className="w-full bg-[#000000] border border-white/10 rounded-xl px-5 py-4 text-zinc-200 placeholder:text-zinc-600 focus:outline-none focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/50 transition-all shadow-inner"
                 />
               </div>
 
               {/* Message */}
               <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-300">Message</label>
+                <label className="text-sm font-medium text-zinc-400">Message</label>
                 <textarea 
                   rows="5"
                   name="message"
@@ -138,20 +174,20 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="Write your message here..."
                   required
-                  className="w-full bg-slate-900/50 border border-slate-700/50 rounded-xl px-4 py-3 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all resize-none"
+                  className="w-full bg-[#000000] border border-white/10 rounded-xl px-5 py-4 text-zinc-200 placeholder:text-zinc-600 focus:outline-none focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/50 transition-all resize-none shadow-inner"
                 ></textarea>
               </div>
 
               {/* Submit Button */}
               <button 
                 type="submit"
-                className="interactive w-full py-4 bg-gradient-to-r from-primary to-secondary text-slate-900 font-bold rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/30 flex items-center justify-center gap-2 group"
+                className="w-full py-4 bg-zinc-100 text-zinc-900 font-bold rounded-xl transition-all duration-300 hover:bg-white hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] flex items-center justify-center gap-3 group mt-4"
               >
                 Send Message 
-                <i className="fas fa-paper-plane group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                <i className="fas fa-paper-plane text-zinc-600 group-hover:text-zinc-900 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all"></i>
               </button>
             </form>
-          </div>
+          </motion.div>
 
         </div>
       </div>
