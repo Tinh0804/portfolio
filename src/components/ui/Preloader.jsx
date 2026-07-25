@@ -1,27 +1,60 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useProgress } from '@react-three/drei';
 
 const Preloader = () => {
-  const [progress, setProgress] = useState(0);
+  const { progress } = useProgress(); // Real loading progress of Three.js assets
+  const progressRef = useRef(progress);
+  
+  // Keep ref updated to avoid restarting the interval
+  useEffect(() => {
+    progressRef.current = progress;
+  }, [progress]);
+
+  const [displayProgress, setDisplayProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     let current = 0;
-    const interval = setInterval(() => {
-      // Create an organic loading curve (fast at first, slower at the end)
-      const increment = current > 80 ? Math.floor(Math.random() * 3) + 1 : Math.floor(Math.random() * 8) + 2;
-      current += increment;
-      
-      if (current >= 100) {
-        current = 100;
-        clearInterval(interval);
-        // Wait a moment at 100% to let the user see it completed
-        setTimeout(() => setIsLoading(false), 700); 
-      }
-      setProgress(current);
-    }, 40);
+    let minTimePassed = false;
+    
+    // Aesthetic minimum timer to ensure the preloader isn't a flash if assets are cached
+    const minTimer = setTimeout(() => {
+      minTimePassed = true;
+    }, 1500); // 1.5 seconds minimum
 
-    return () => clearInterval(interval);
+    const interval = setInterval(() => {
+      const target = progressRef.current;
+      
+      // Smoothly animate towards the real progress
+      if (current < target) {
+        current += Math.random() * 3 + 1; // Organic fast/slow increment
+        if (current > target) current = target;
+      }
+      
+      // If assets load very slowly, we can let the fake counter advance a bit
+      // but cap it so it never hits 100 until real assets are done.
+      if (current >= target && target < 100) {
+         if (current < 90) {
+            current += Math.random() * 0.5; // very slow fake progress to show activity
+         }
+      }
+
+      setDisplayProgress(Math.floor(current));
+      
+      // If 100% reached and min time has elapsed
+      if (target >= 100 && current >= 100 && minTimePassed) {
+        clearInterval(interval);
+        setDisplayProgress(100);
+        // Pause at 100 for a moment before hiding
+        setTimeout(() => setIsLoading(false), 500);
+      }
+    }, 30);
+
+    return () => {
+      clearInterval(interval);
+      clearTimeout(minTimer);
+    };
   }, []);
 
   return (
@@ -61,7 +94,7 @@ const Preloader = () => {
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }} // Springy reveal
                 className="text-8xl md:text-[12rem] font-display font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-600 leading-none tracking-tighter"
               >
-                {progress}
+                {displayProgress}
                 <span className="text-4xl md:text-8xl text-sky-500">%</span>
               </motion.h1>
             </div>
@@ -75,14 +108,14 @@ const Preloader = () => {
             >
               <div className="h-[1px] w-12 md:w-20 bg-gradient-to-r from-transparent to-sky-500"></div>
               <span className="text-xs md:text-sm font-mono tracking-[0.4em] uppercase text-zinc-400">
-                System Initializing
+                Lê Hoàng Quách Tỉnh
               </span>
               <div className="h-[1px] w-12 md:w-20 bg-gradient-to-l from-transparent to-sky-500"></div>
             </motion.div>
           </div>
 
           {/* Progress Line at the very bottom */}
-          <div className="absolute bottom-0 left-0 h-1 bg-sky-500 shadow-[0_0_20px_rgba(56,189,248,0.8)]" style={{ width: `${progress}%`, transition: 'width 0.1s linear' }}></div>
+          <div className="absolute bottom-0 left-0 h-1 bg-sky-500 shadow-[0_0_20px_rgba(56,189,248,0.8)]" style={{ width: `${displayProgress}%`, transition: 'width 0.1s linear' }}></div>
         </motion.div>
       )}
     </AnimatePresence>

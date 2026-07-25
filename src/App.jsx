@@ -19,7 +19,7 @@ function App() {
   const activeSection = useActiveNav();
 
   return (
-    <div className="bg-[#09090b] text-slate-100 overflow-x-hidden font-sans">
+    <div className="overflow-x-hidden font-sans min-h-screen">
       <CustomCursor />
       <Preloader />
       <BackgroundBlobs />

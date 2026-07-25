@@ -41,7 +41,7 @@ const Journey = () => {
   const activeItem = journeyData.find(item => item.id === activeId);
 
   return (
-    <section id="journey" className="relative py-24 md:py-32 bg-[#09090b] overflow-hidden">
+    <section id="journey" className="relative py-24 md:py-32 bg-white dark:bg-[#09090b] transition-colors duration-300 overflow-hidden">
       
       <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
         
@@ -54,10 +54,10 @@ const Journey = () => {
         >
           <div className="flex items-center gap-4 mb-4">
             <div className="h-[1px] w-12 bg-sky-500"></div>
-            <span className="text-sky-400 font-mono text-sm uppercase tracking-widest">Evolution</span>
+            <span className="text-sky-500 dark:text-sky-400 font-mono text-sm uppercase tracking-widest">Evolution</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display text-white">
-            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400">Journey.</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display text-slate-900 dark:text-white">
+            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-500 dark:from-sky-400 dark:to-indigo-400">Journey.</span>
           </h2>
         </motion.div>
 
@@ -66,7 +66,7 @@ const Journey = () => {
           {/* Left: Interactive Timeline Track */}
           <div className="w-full md:w-1/3 relative">
             {/* Background Track Line */}
-            <div className="absolute left-[31px] top-4 bottom-4 w-[1px] bg-white/10 hidden md:block"></div>
+            <div className="absolute left-[31px] top-4 bottom-4 w-[1px] bg-black/10 dark:bg-white/10 hidden md:block"></div>
             
             <div className="flex flex-row md:flex-col gap-2 overflow-x-auto md:overflow-visible pb-4 md:pb-0 hide-scrollbar snap-x snap-mandatory relative z-10">
               {journeyData.map((item) => {
@@ -78,19 +78,19 @@ const Journey = () => {
                     className="relative flex items-center gap-4 p-4 rounded-2xl transition-all duration-300 group text-left min-w-[200px] md:min-w-0 snap-start shrink-0"
                   >
                     {/* Glowing Dot (Desktop only indicator) */}
-                    <div className={`hidden md:flex relative items-center justify-center w-8 h-8 rounded-full z-10 transition-colors duration-300 ${isActive ? 'bg-sky-500/20' : 'bg-[#09090b]'}`}>
-                      <div className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${isActive ? 'bg-sky-400 scale-125 shadow-[0_0_10px_rgba(56,189,248,0.8)]' : 'bg-zinc-700 group-hover:bg-zinc-500 scale-100'}`}></div>
+                    <div className={`hidden md:flex relative items-center justify-center w-8 h-8 rounded-full z-10 transition-colors duration-300 ${isActive ? 'bg-sky-100 dark:bg-sky-500/20' : 'bg-slate-50 dark:bg-[#09090b]'}`}>
+                      <div className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${isActive ? 'bg-sky-500 dark:bg-sky-400 scale-125 shadow-[0_0_10px_rgba(56,189,248,0.8)]' : 'bg-slate-300 group-hover:bg-slate-400 dark:bg-zinc-700 dark:group-hover:bg-zinc-500 scale-100'}`}></div>
                     </div>
                     
                     {/* Mobile Background indicator */}
-                    <div className={`absolute inset-0 rounded-2xl transition-colors duration-300 md:hidden ${isActive ? 'bg-sky-500/10 border border-sky-500/20' : 'bg-white/[0.02] border border-white/5'}`}></div>
+                    <div className={`absolute inset-0 rounded-2xl transition-colors duration-300 md:hidden ${isActive ? 'bg-sky-50 dark:bg-sky-500/10 border border-sky-200 dark:border-sky-500/20' : 'bg-slate-50 dark:bg-white/[0.02] border border-black/5 dark:border-white/5'}`}></div>
 
                     {/* Text */}
                     <div className="flex flex-col relative z-10">
-                      <span className={`font-mono text-xs mb-1 transition-colors duration-300 ${isActive ? 'text-sky-400' : 'text-zinc-500 group-hover:text-zinc-400'}`}>
+                      <span className={`font-mono text-xs mb-1 transition-colors duration-300 ${isActive ? 'text-sky-500 dark:text-sky-400' : 'text-slate-500 group-hover:text-slate-700 dark:text-zinc-500 dark:group-hover:text-zinc-400'}`}>
                         {item.year}
                       </span>
-                      <span className={`font-medium text-sm md:text-base transition-colors duration-300 ${isActive ? 'text-white' : 'text-zinc-500 group-hover:text-zinc-300'}`}>
+                      <span className={`font-medium text-sm md:text-base transition-colors duration-300 ${isActive ? 'text-slate-900 dark:text-white' : 'text-slate-500 group-hover:text-slate-800 dark:text-zinc-500 dark:group-hover:text-zinc-300'}`}>
                         {item.title}
                       </span>
                     </div>
@@ -109,33 +109,33 @@ const Journey = () => {
                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                 exit={{ opacity: 0, y: -15, filter: 'blur(8px)' }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
-                className="relative rounded-3xl bg-white/[0.02] border border-white/5 p-8 md:p-12 overflow-hidden shadow-2xl"
+                className="relative rounded-3xl bg-slate-50 dark:bg-white/[0.02] border border-black/5 dark:border-white/5 p-8 md:p-12 overflow-hidden shadow-xl dark:shadow-2xl"
               >
                 {/* Watermark Icon */}
-                <i className={`${activeItem.icon} absolute -bottom-10 -right-10 text-[12rem] text-white/[0.02] -rotate-12 pointer-events-none`}></i>
+                <i className={`${activeItem.icon} absolute -bottom-10 -right-10 text-[12rem] text-black/[0.03] dark:text-white/[0.02] -rotate-12 pointer-events-none`}></i>
                 
                 {/* Top glow accent */}
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-sky-400 to-indigo-500 opacity-70"></div>
 
                 <div className="relative z-10">
                   <div className="flex flex-col md:flex-row md:items-center gap-5 mb-8">
-                    <div className="w-16 h-16 rounded-full bg-sky-500/10 flex items-center justify-center border border-sky-500/20 text-sky-400 text-2xl shadow-[0_0_20px_rgba(56,189,248,0.15)] shrink-0">
+                    <div className="w-16 h-16 rounded-full bg-sky-50 dark:bg-sky-500/10 flex items-center justify-center border border-sky-200 dark:border-sky-500/20 text-sky-500 dark:text-sky-400 text-2xl shadow-sm dark:shadow-[0_0_20px_rgba(56,189,248,0.15)] shrink-0">
                       <i className={activeItem.icon}></i>
                     </div>
                     <div>
-                      <span className="font-mono text-xs text-indigo-400 uppercase tracking-widest">{activeItem.year}</span>
-                      <h3 className="text-2xl md:text-3xl font-bold text-white mt-2">{activeItem.title}</h3>
+                      <span className="font-mono text-xs text-indigo-500 dark:text-indigo-400 uppercase tracking-widest">{activeItem.year}</span>
+                      <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mt-2">{activeItem.title}</h3>
                     </div>
                   </div>
 
-                  <p className="text-zinc-400 text-base md:text-lg leading-relaxed font-light mb-10">
+                  <p className="text-slate-600 dark:text-zinc-400 text-base md:text-lg leading-relaxed font-light mb-10">
                     {activeItem.desc}
                   </p>
 
                   {/* Tech Stack Pills */}
                   <div className="flex flex-wrap gap-3">
                     {activeItem.tech.map((tech, i) => (
-                      <span key={i} className="px-4 py-2 rounded-full text-xs font-mono text-zinc-300 bg-white/5 border border-white/10 hover:bg-white/10 transition-colors hover:border-sky-500/30 cursor-default">
+                      <span key={i} className="px-4 py-2 rounded-full text-xs font-mono text-slate-700 dark:text-zinc-300 bg-white dark:bg-white/5 border border-black/10 dark:border-white/10 hover:bg-slate-100 dark:hover:bg-white/10 transition-colors hover:border-sky-500/30 cursor-default shadow-sm dark:shadow-none">
                         {tech}
                       </span>
                     ))}
