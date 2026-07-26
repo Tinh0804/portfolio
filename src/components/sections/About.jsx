@@ -70,6 +70,37 @@ const About = () => {
                 My expertise lies in architecting resilient backend systems, orchestrating microservices, and optimizing complex data flows. I don't just write code; I build infrastructure that scales effortlessly under pressure while remaining remarkably easy to maintain and secure.
               </p>
             </div>
+
+            {/* Social & CV Actions */}
+            <div className="mt-16 pt-10 border-t border-black/5 dark:border-white/5 flex flex-wrap items-center justify-between gap-6 relative z-10">
+              {/* Social Icons */}
+              <div className="flex items-center gap-4">
+                {/* GitHub */}
+                <a href="https://github.com/Tinh0804" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full flex items-center justify-center bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-white/5 dark:text-zinc-300 dark:hover:bg-white/10 border border-transparent dark:border-white/10 hover:scale-110 transition-all duration-300 shadow-sm group">
+                  <i className="fa-brands fa-github text-2xl group-hover:scale-110 transition-transform"></i>
+                </a>
+                
+                {/* LinkedIn */}
+                <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full flex items-center justify-center bg-sky-100 text-sky-600 hover:bg-sky-200 dark:bg-sky-500/10 dark:text-sky-400 dark:hover:bg-sky-500/20 border border-transparent dark:border-sky-500/20 hover:scale-110 transition-all duration-300 shadow-sm group">
+                  <i className="fa-brands fa-linkedin-in text-2xl group-hover:scale-110 transition-transform"></i>
+                </a>
+                
+                {/* Facebook */}
+                <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full flex items-center justify-center bg-indigo-100 text-indigo-600 hover:bg-indigo-200 dark:bg-indigo-500/10 dark:text-indigo-400 dark:hover:bg-indigo-500/20 border border-transparent dark:border-indigo-500/20 hover:scale-110 transition-all duration-300 shadow-sm group">
+                  <i className="fa-brands fa-facebook-f text-2xl group-hover:scale-110 transition-transform"></i>
+                </a>
+              </div>
+              
+              {/* CV Buttons */}
+              <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
+                <a href="/assets/LeHoangQuachTinh_FullstackDeveloper_CV.pdf" target="_blank" rel="noopener noreferrer" className="flex-1 sm:flex-none justify-center px-6 py-3 rounded-full bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-zinc-300 font-medium hover:bg-slate-200 dark:hover:bg-white/10 transition-colors flex items-center gap-2 text-sm shadow-sm dark:shadow-none">
+                  <i className="fa-regular fa-eye text-base"></i> View CV
+                </a>
+                <a href="/assets/LeHoangQuachTinh_FullstackDeveloper_CV.pdf" download="LeHoangQuachTinh_FullstackDeveloper_CV.pdf" className="flex-1 sm:flex-none justify-center px-6 py-3 rounded-full bg-sky-50 dark:bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-200 dark:border-sky-500/20 font-medium hover:bg-sky-100 dark:hover:bg-sky-500/20 transition-colors flex items-center gap-2 text-sm shadow-sm dark:shadow-[0_0_15px_rgba(56,189,248,0.1)]">
+                  <i className="fa-solid fa-download text-base"></i> Download CV
+                </a>
+              </div>
+            </div>
           </motion.div>
 
           {/* 3. Skill/Stat Cards */}

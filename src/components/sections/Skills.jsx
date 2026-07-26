@@ -106,7 +106,10 @@ const Skills = () => {
               
               <div className="flex flex-col gap-4">
                 <TechRow folder="spring" file="spring-original.svg" name="Spring Boot / Security / Data" />
-                <TechRow folder="dotnetcore" file="dotnetcore-original.svg" name=".NET Core 8" />
+                <div className="grid grid-cols-2 gap-4">
+                  <TechRow folder="dotnetcore" file="dotnetcore-original.svg" name=".NET Core" />
+                  <TechRow folder="react" file="react-original.svg" name="ReactJS" />
+                </div>
               </div>
             </div>
           </motion.div>

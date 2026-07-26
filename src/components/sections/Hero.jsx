@@ -91,8 +91,8 @@ const Hero = () => {
 
         {/* RIGHT SIDE: 3D Macbook */}
         <motion.div 
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
           className="w-full lg:w-[55%] h-[400px] sm:h-[500px] lg:h-[700px] relative flex justify-center items-center"
         >
