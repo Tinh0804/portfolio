@@ -10,17 +10,17 @@ const Footer = () => {
     const hasVisited = sessionStorage.getItem('portfolio_has_visited_v2');
     if (!hasVisited) {
       fetch('https://countapi.mileshilliard.com/api/v1/hit/tinh0804-portfolio-visitors-v2')
-        .then(res => res.json())
+        .then(res => res.ok ? res.json() : { value: 1 })
         .then(data => {
-          setVisitors(data.value);
+          setVisitors(data.value || 1);
           sessionStorage.setItem('portfolio_has_visited_v2', 'true');
         })
-        .catch(console.error);
+        .catch(() => setVisitors(1));
     } else {
       fetch('https://countapi.mileshilliard.com/api/v1/get/tinh0804-portfolio-visitors-v2')
-        .then(res => res.json())
-        .then(data => setVisitors(data.value))
-        .catch(console.error);
+        .then(res => res.ok ? res.json() : { value: 1 })
+        .then(data => setVisitors(data.value || 1))
+        .catch(() => setVisitors(1));
     }
   }, []);
 

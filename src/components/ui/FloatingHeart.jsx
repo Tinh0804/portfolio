@@ -8,10 +8,9 @@ const FloatingHeart = () => {
   const [clicks, setClicks] = useState([]);
 
   useEffect(() => {
-    // Fetch real global likes from a free counter API
     fetch('https://countapi.mileshilliard.com/api/v1/get/tinh0804-portfolio-hearts-v2')
-      .then(res => res.json())
-      .then(data => setLikes(data.value))
+      .then(res => res.ok ? res.json() : { value: 0 })
+      .then(data => setLikes(data.value || 0))
       .catch(() => setLikes(0));
 
     const savedHasLiked = localStorage.getItem('portfolio_has_liked_v2');
@@ -103,7 +102,7 @@ const FloatingHeart = () => {
         className="pointer-events-auto mt-1"
       >
         <span className="text-xs font-mono font-bold text-slate-700 dark:text-zinc-300 bg-white/80 dark:bg-zinc-900/80 px-3 py-1 rounded-full shadow-sm border border-black/5 dark:border-white/10 backdrop-blur-md">
-          {likes.toLocaleString()}
+          {likes !== undefined ? likes.toLocaleString() : 0}
         </span>
       </motion.div>
     </div>
