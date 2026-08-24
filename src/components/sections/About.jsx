@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { useTranslation, Trans } from 'react-i18next';
 
 const About = () => {
+  const { t } = useTranslation();
   return (
     <section id="about" className="relative py-24 md:py-32 overflow-hidden bg-slate-50 dark:bg-[#09090b] transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -15,10 +17,10 @@ const About = () => {
         >
           <div className="flex items-center gap-4 mb-4">
             <div className="h-[1px] w-12 bg-sky-500"></div>
-            <span className="text-sky-500 dark:text-sky-400 font-mono text-sm uppercase tracking-widest">Get to know me</span>
+            <span className="text-sky-500 dark:text-sky-400 font-mono text-sm uppercase tracking-widest">{t('about.subtitle')}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display text-slate-900 dark:text-white">
-            Beyond the <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-500 dark:from-sky-400 dark:to-indigo-400">Code.</span>
+            {t('about.title1')}<span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-500 dark:from-sky-400 dark:to-indigo-400">{t('about.title2')}</span>
           </h2>
         </motion.div>
 
@@ -45,7 +47,7 @@ const About = () => {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 dark:bg-green-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-3 w-3 bg-green-600 dark:bg-green-500"></span>
                   </span>
-                  <span className="text-slate-900 dark:text-white font-medium text-sm">Available for work</span>
+                  <span className="text-slate-900 dark:text-white font-medium text-sm">{t('about.status')}</span>
                 </div>
               </div>
             </div>
@@ -64,10 +66,12 @@ const About = () => {
             <i className="fa-solid fa-quote-left text-3xl text-sky-500/20 mb-6"></i>
             <div className="space-y-4 text-slate-600 dark:text-zinc-300 text-lg md:text-xl leading-relaxed font-light relative z-10">
               <p>
-                Hello! I'm <strong className="text-slate-900 dark:text-white font-medium">Lê Hoàng Quách Tỉnh</strong>. I engineer the unseen foundation of digital products. 
+                <Trans i18nKey="about.bio1">
+                  Hello! I'm <strong className="text-slate-900 dark:text-white font-medium">Lê Hoàng Quách Tỉnh</strong>. I engineer the unseen foundation of digital products.
+                </Trans>
               </p>
               <p>
-                My expertise lies in architecting resilient backend systems, orchestrating microservices, and optimizing complex data flows. I don't just write code; I build infrastructure that scales effortlessly under pressure while remaining remarkably easy to maintain and secure.
+                {t('about.bio2')}
               </p>
             </div>
 
@@ -94,10 +98,10 @@ const About = () => {
               {/* CV Buttons */}
               <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
                 <a href="/assets/LeHoangQuachTinh_FullstackDeveloper_CV.pdf" target="_blank" rel="noopener noreferrer" className="flex-1 sm:flex-none justify-center px-6 py-3 rounded-full bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-zinc-300 font-medium hover:bg-slate-200 dark:hover:bg-white/10 transition-colors flex items-center gap-2 text-sm shadow-sm dark:shadow-none">
-                  <i className="fa-regular fa-eye text-base"></i> View CV
+                  <i className="fa-regular fa-eye text-base"></i> {t('about.viewCv')}
                 </a>
                 <a href="/assets/LeHoangQuachTinh_FullstackDeveloper_CV.pdf" download="LeHoangQuachTinh_FullstackDeveloper_CV.pdf" className="flex-1 sm:flex-none justify-center px-6 py-3 rounded-full bg-sky-50 dark:bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-200 dark:border-sky-500/20 font-medium hover:bg-sky-100 dark:hover:bg-sky-500/20 transition-colors flex items-center gap-2 text-sm shadow-sm dark:shadow-[0_0_15px_rgba(56,189,248,0.1)]">
-                  <i className="fa-solid fa-download text-base"></i> Download CV
+                  <i className="fa-solid fa-download text-base"></i> {t('about.downloadCv')}
                 </a>
               </div>
             </div>
@@ -114,8 +118,8 @@ const About = () => {
             <div className="w-12 h-12 rounded-full bg-indigo-50 dark:bg-indigo-500/10 flex items-center justify-center text-indigo-500 dark:text-indigo-400 text-xl mb-6">
               <i className="fa-solid fa-network-wired"></i>
             </div>
-            <h3 className="text-slate-900 dark:text-white font-medium mb-2 text-lg">Microservices</h3>
-            <p className="text-sm text-slate-500 dark:text-zinc-500 font-light">Deconstructing complexity into scalable, isolated systems.</p>
+            <h3 className="text-slate-900 dark:text-white font-medium mb-2 text-lg">{t('about.card1Title')}</h3>
+            <p className="text-sm text-slate-500 dark:text-zinc-500 font-light">{t('about.card1Desc')}</p>
           </motion.div>
 
           <motion.div 
@@ -128,8 +132,8 @@ const About = () => {
             <div className="w-12 h-12 rounded-full bg-sky-50 dark:bg-sky-500/10 flex items-center justify-center text-sky-500 dark:text-sky-400 text-xl mb-6">
               <i className="fa-solid fa-server"></i>
             </div>
-            <h3 className="text-slate-900 dark:text-white font-medium mb-2 text-lg">Cloud / DevOps</h3>
-            <p className="text-sm text-slate-500 dark:text-zinc-500 font-light">Automating deployments for 99.9% uptime.</p>
+            <h3 className="text-slate-900 dark:text-white font-medium mb-2 text-lg">{t('about.card2Title')}</h3>
+            <p className="text-sm text-slate-500 dark:text-zinc-500 font-light">{t('about.card2Desc')}</p>
           </motion.div>
 
           <motion.div 
@@ -142,8 +146,8 @@ const About = () => {
             <div className="w-12 h-12 rounded-full bg-indigo-50 dark:bg-indigo-500/10 flex items-center justify-center text-indigo-500 dark:text-indigo-400 text-xl mb-6">
               <i className="fa-solid fa-cogs"></i>
             </div>
-            <h3 className="text-slate-900 dark:text-white font-medium mb-2 text-lg">Backend Engineering</h3>
-            <p className="text-sm text-slate-500 dark:text-zinc-500 font-light">Building robust, scalable, and secure APIs.</p>
+            <h3 className="text-slate-900 dark:text-white font-medium mb-2 text-lg">{t('about.card3Title')}</h3>
+            <p className="text-sm text-slate-500 dark:text-zinc-500 font-light">{t('about.card3Desc')}</p>
           </motion.div>
 
         </div>

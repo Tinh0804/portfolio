@@ -2,10 +2,12 @@ import React, { Suspense, useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Environment, Float, Stars, Sparkles } from '@react-three/drei';
 import { motion, useScroll } from 'motion/react';
+import { useTranslation, Trans } from 'react-i18next';
 import MacbookModel from '../ui/MacbookModel';
 import { useTheme } from '../../context/ThemeContext';
 
 const Hero = () => {
+  const { t } = useTranslation();
   const containerRef = useRef(null);
   const { theme } = useTheme();
   
@@ -48,25 +50,27 @@ const Hero = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-500 dark:bg-sky-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-600 dark:bg-sky-500"></span>
             </span>
-            <span className="text-slate-600 dark:text-zinc-300 font-mono text-[10px] md:text-xs uppercase tracking-wider font-semibold">Available for new opportunities</span>
+            <span className="text-slate-600 dark:text-zinc-300 font-mono text-[10px] md:text-xs uppercase tracking-wider font-semibold">{t('hero.status')}</span>
           </div>
 
           {/* Elegant Title */}
           <h1 className="text-4xl sm:text-6xl lg:text-[4.5rem] font-bold font-display leading-[1.1] text-slate-900 dark:text-white tracking-tight mb-6 drop-shadow-sm dark:drop-shadow-lg">
-            Building Scalable <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-500 dark:from-sky-400 dark:to-indigo-400">Web Experiences.</span>
+            {t('hero.titlePart1')} <br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-500 dark:from-sky-400 dark:to-indigo-400">{t('hero.titlePart2')}</span>
           </h1>
 
           <p className="text-slate-600 dark:text-zinc-400 text-lg max-w-xl leading-relaxed mb-10 font-light drop-shadow-sm dark:drop-shadow-md">
-            Hi, I'm <span className="text-slate-900 dark:text-zinc-200 font-medium">Lê Hoàng Quách Tỉnh</span>. A Full-Stack Engineer merging high-performance backend microservices with dynamic web interfaces and robust cloud deployments.
+            <Trans i18nKey="hero.description">
+              Hi, I'm <span className="text-slate-900 dark:text-zinc-200 font-medium">Lê Hoàng Quách Tỉnh</span>. A Full-Stack Engineer merging high-performance backend microservices with dynamic web interfaces and robust cloud deployments.
+            </Trans>
           </p>
 
           <div className="flex flex-wrap items-center gap-4">
             <a href="#projects" className="px-8 py-4 bg-sky-50 dark:bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-200 dark:border-sky-500/20 font-semibold rounded-lg hover:bg-sky-100 dark:hover:bg-sky-500/20 transition-colors backdrop-blur-sm shadow-sm dark:shadow-[0_0_20px_rgba(56,189,248,0.15)]">
-              Explore Works
+              {t('hero.explore')}
             </a>
             <a href="#contact" className="px-8 py-4 bg-black/5 dark:bg-white/5 backdrop-blur-md border border-black/10 dark:border-white/10 text-slate-700 dark:text-zinc-300 hover:text-slate-900 dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 font-medium rounded-lg transition-colors shadow-sm dark:shadow-lg">
-              Contact Me <i className="fa-solid fa-arrow-right ml-2 text-sm"></i>
+              {t('hero.contact')} <i className="fa-solid fa-arrow-right ml-2 text-sm"></i>
             </a>
           </div>
 
@@ -77,7 +81,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
           >
-            <span className="text-slate-500 dark:text-zinc-500 font-mono text-[10px] uppercase tracking-widest">Core Stack</span>
+            <span className="text-slate-500 dark:text-zinc-500 font-mono text-[10px] uppercase tracking-widest">{t('hero.coreStack')}</span>
             <div className="flex gap-6 text-2xl">
               <i className="fa-brands fa-java text-[#f89820] hover:scale-110 transition-transform cursor-pointer" title="Java"></i>
               <i className="fa-solid fa-leaf text-[#6db33f] hover:scale-110 transition-transform cursor-pointer" title="Spring Boot"></i>

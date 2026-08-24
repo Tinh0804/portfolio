@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { useTranslation } from 'react-i18next';
 import TechMarquee from './TechMarquee';
 
 const Skills = () => {
+  const { t } = useTranslation();
   return (
     <section id="skills" className="relative pt-24 md:pt-32 pb-20 md:pb-32 overflow-hidden bg-slate-50 dark:bg-[#09090b] transition-colors duration-300">
       
@@ -26,11 +28,11 @@ const Skills = () => {
         >
           <div className="flex items-center gap-4 mb-4">
             <div className="h-[1px] w-12 bg-sky-500"></div>
-            <span className="text-sky-600 font-mono text-sm uppercase tracking-widest">Arsenal</span>
+            <span className="text-sky-600 font-mono text-sm uppercase tracking-widest">{t('skills.subtitle')}</span>
             <div className="h-[1px] w-12 bg-sky-500"></div>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display text-slate-900 dark:text-white">
-            Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-500 dark:from-sky-400 dark:to-indigo-400">Toolkit.</span>
+            {t('skills.title1')}<span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-500 dark:from-sky-400 dark:to-indigo-400">{t('skills.title2')}</span>
           </h2>
         </motion.div>
 
@@ -53,9 +55,9 @@ const Skills = () => {
             
             <div className="relative z-10 flex flex-col h-full justify-between">
               <div>
-                <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">Core Languages</h3>
+                <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">{t('skills.coreLangs')}</h3>
                 <p className="text-slate-500 dark:text-zinc-400 text-lg max-w-md">
-                  The primary tools I use to translate complex architecture into high-performance executable systems.
+                  {t('skills.coreLangsDesc')}
                 </p>
               </div>
               
@@ -78,8 +80,8 @@ const Skills = () => {
             <div className="absolute bottom-0 right-0 w-64 h-64 bg-emerald-400/10 blur-[80px] rounded-full group-hover:bg-emerald-400/20 transition-colors"></div>
             
             <div className="relative z-10">
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Databases</h3>
-              <p className="text-slate-500 dark:text-zinc-400 mb-8">Designing robust relational schemas and ultra-fast cache layers.</p>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{t('skills.databases')}</h3>
+              <p className="text-slate-500 dark:text-zinc-400 mb-8">{t('skills.databasesDesc')}</p>
               
               <div className="grid grid-cols-2 gap-6">
                 <TechIcon folder="microsoftsqlserver" file="microsoftsqlserver-plain.svg" name="SQL Server" />
@@ -101,8 +103,8 @@ const Skills = () => {
              <div className="absolute top-0 left-0 w-64 h-64 bg-indigo-400/10 blur-[80px] rounded-full group-hover:bg-indigo-400/20 transition-colors"></div>
              
              <div className="relative z-10">
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Frameworks</h3>
-              <p className="text-slate-500 dark:text-zinc-400 mb-8">Rapid, secure enterprise scaling.</p>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{t('skills.frameworks')}</h3>
+              <p className="text-slate-500 dark:text-zinc-400 mb-8">{t('skills.frameworksDesc')}</p>
               
               <div className="flex flex-col gap-4">
                 <TechRow folder="spring" file="spring-original.svg" name="Spring Boot / Security / Data" />
@@ -126,9 +128,9 @@ const Skills = () => {
             
             <div className="relative z-10 flex flex-col md:flex-row gap-8 justify-between items-center h-full">
               <div className="w-full md:w-1/2 text-center md:text-left">
-                <h3 className="text-3xl font-bold text-white mb-2">Cloud & DevOps</h3>
+                <h3 className="text-3xl font-bold text-white mb-2">{t('skills.cloud')}</h3>
                 <p className="text-slate-400 dark:text-zinc-400">
-                  Deploying highly available distributed systems and automating the entire CI/CD pipeline.
+                  {t('skills.cloudDesc')}
                 </p>
               </div>
               

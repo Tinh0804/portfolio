@@ -10,6 +10,7 @@ import Skills from './components/sections/Skills';
 import Projects from './components/sections/Projects';
 import Contact from './components/sections/Contact';
 import Footer from './components/layout/Footer';
+import FloatingHeart from './components/ui/FloatingHeart';
 import { useScrollReveal } from './hooks/useScrollReveal';
 import { useActiveNav } from './hooks/useActiveNav';
 import './index.css';
@@ -35,6 +36,7 @@ function App() {
       </main>
 
       <Footer />
+      <FloatingHeart />
     </div>
   );
 }

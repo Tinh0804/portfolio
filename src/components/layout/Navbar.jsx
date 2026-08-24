@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useTranslation } from 'react-i18next';
 import ThemeToggle from '../ui/ThemeToggle';
 
 const Navbar = ({ activeSection }) => {
+  const { t, i18n } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -22,12 +24,17 @@ const Navbar = ({ activeSection }) => {
     setIsMobileMenuOpen(false);
   };
 
+  const toggleLanguage = () => {
+    const newLang = i18n.language.startsWith('en') ? 'vi' : 'en';
+    i18n.changeLanguage(newLang);
+  };
+
   const navLinks = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'journey', label: 'Journey' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'projects', label: 'Projects' }
+    { id: 'home', label: t('nav.home', 'Home') },
+    { id: 'about', label: t('nav.about', 'About') },
+    { id: 'journey', label: t('nav.journey', 'Journey') },
+    { id: 'skills', label: t('nav.skills', 'Skills') },
+    { id: 'projects', label: t('nav.projects', 'Projects') }
   ];
 
   return (
@@ -87,6 +94,13 @@ const Navbar = ({ activeSection }) => {
           </div>
 
           <div className="hidden md:flex items-center gap-4">
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-800 dark:text-white transition-colors focus:outline-none pointer-events-auto"
+              title="Toggle Language"
+            >
+              <span className="font-bold text-sm">{i18n.language.startsWith('vi') ? 'VI' : 'EN'}</span>
+            </button>
             <ThemeToggle />
             
             {/* Desktop Contact Button */}
@@ -94,12 +108,18 @@ const Navbar = ({ activeSection }) => {
               href="#contact"
               className="px-6 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-black text-base font-bold rounded-full hover:bg-sky-500 dark:hover:bg-sky-400 hover:text-white dark:hover:text-white hover:scale-105 transition-all duration-300 shadow-lg"
             >
-              Let's Talk
+              {t('nav.letsTalk', "Let's Talk")}
             </a>
           </div>
 
           {/* Mobile Menu Toggle & Theme */}
           <div className="flex md:hidden items-center gap-4">
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-800 dark:text-white transition-colors focus:outline-none pointer-events-auto"
+            >
+              <span className="font-bold text-xs">{i18n.language.startsWith('vi') ? 'VI' : 'EN'}</span>
+            </button>
             <ThemeToggle />
             <button
               className="text-slate-800 dark:text-white hover:text-sky-500 dark:hover:text-sky-400 transition-colors focus:outline-none pointer-events-auto"
@@ -140,7 +160,7 @@ const Navbar = ({ activeSection }) => {
                 onClick={closeMobileMenu}
                 className="text-xl font-display tracking-wide text-slate-900 dark:text-white flex items-center gap-2"
               >
-                Let's Talk <i className="fas fa-arrow-right text-sky-500 dark:text-sky-400 text-sm"></i>
+                {t('nav.letsTalk', "Let's Talk")} <i className="fas fa-arrow-right text-sky-500 dark:text-sky-400 text-sm"></i>
               </a>
             </div>
           </motion.div>

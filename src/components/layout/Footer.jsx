@@ -1,7 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
+  const [visitors, setVisitors] = useState(null);
+
+  useEffect(() => {
+    const hasVisited = sessionStorage.getItem('portfolio_has_visited_v2');
+    if (!hasVisited) {
+      fetch('https://countapi.mileshilliard.com/api/v1/hit/tinh0804-portfolio-visitors-v2')
+        .then(res => res.json())
+        .then(data => {
+          setVisitors(data.value);
+          sessionStorage.setItem('portfolio_has_visited_v2', 'true');
+        })
+        .catch(console.error);
+    } else {
+      fetch('https://countapi.mileshilliard.com/api/v1/get/tinh0804-portfolio-visitors-v2')
+        .then(res => res.json())
+        .then(data => setVisitors(data.value))
+        .catch(console.error);
+    }
+  }, []);
+
   return (
     <footer className="relative py-12 px-6 border-t border-black/5 dark:border-white/5 bg-slate-50 dark:bg-[#09090b] overflow-hidden transition-colors duration-300">
       {/* Subtle Background Glow */}
@@ -47,11 +69,23 @@ const Footer = () => {
           className="text-center"
         >
           <p className="text-slate-500 dark:text-zinc-500 mb-2 font-light">
-            © 2026 <span className="text-slate-700 dark:text-zinc-300 font-medium">Lê Hoàng Quách Tỉnh</span>. Made with ❤️ and ☕
+            © 2026 <span className="text-slate-700 dark:text-zinc-300 font-medium">Lê Hoàng Quách Tỉnh</span>. {t('footer.madeWith')}
           </p>
-          <p className="text-slate-400 dark:text-zinc-600 text-sm font-mono tracking-widest uppercase">
-            Fullstack Developer | Clean Code Enthusiast
+          <p className="text-slate-400 dark:text-zinc-600 text-sm font-mono tracking-widest uppercase mb-6">
+            {t('footer.role')}
           </p>
+          {visitors !== null && (
+            <div className="flex justify-center mt-6">
+              <div className="flex items-center rounded-md overflow-hidden shadow-sm border border-black/10 dark:border-white/10 font-mono text-xs">
+                <div className="bg-slate-800 dark:bg-zinc-800 text-white px-3 py-1.5">
+                  {t('footer.visitors')}
+                </div>
+                <div className="bg-sky-500 text-white px-3 py-1.5 font-bold">
+                  {visitors}
+                </div>
+              </div>
+            </div>
+          )}
         </motion.div>
         
       </div>

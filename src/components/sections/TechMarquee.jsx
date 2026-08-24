@@ -3,6 +3,7 @@ import React from 'react';
 const techs1 = [
   { name: "Java", icon: "java/java-original.svg" },
   { name: "Spring Boot", icon: "spring/spring-original.svg" },
+  { name: "NestJS", icon: "nestjs/nestjs-original.svg" },
   { name: "C#", icon: "csharp/csharp-original.svg" },
   { name: ".NET Core", icon: "dotnetcore/dotnetcore-original.svg" },
   { name: "Python", icon: "python/python-original.svg" },

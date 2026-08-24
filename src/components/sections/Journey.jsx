@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useTranslation } from 'react-i18next';
 
 const journeyData = [
   {
@@ -37,6 +38,7 @@ const journeyData = [
 ];
 
 const Journey = () => {
+  const { t } = useTranslation();
   const [activeId, setActiveId] = useState(1);
   const activeItem = journeyData.find(item => item.id === activeId);
 
@@ -54,10 +56,10 @@ const Journey = () => {
         >
           <div className="flex items-center gap-4 mb-4">
             <div className="h-[1px] w-12 bg-sky-500"></div>
-            <span className="text-sky-500 dark:text-sky-400 font-mono text-sm uppercase tracking-widest">Evolution</span>
+            <span className="text-sky-500 dark:text-sky-400 font-mono text-sm uppercase tracking-widest">{t('journey.subtitle')}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display text-slate-900 dark:text-white">
-            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-500 dark:from-sky-400 dark:to-indigo-400">Journey.</span>
+            {t('journey.title1')}<span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-500 dark:from-sky-400 dark:to-indigo-400">{t('journey.title2')}</span>
           </h2>
         </motion.div>
 
@@ -88,10 +90,10 @@ const Journey = () => {
                     {/* Text */}
                     <div className="flex flex-col relative z-10">
                       <span className={`font-mono text-xs mb-1 transition-colors duration-300 ${isActive ? 'text-sky-500 dark:text-sky-400' : 'text-slate-500 group-hover:text-slate-700 dark:text-zinc-500 dark:group-hover:text-zinc-400'}`}>
-                        {item.year}
+                        {t(`journey.items.${item.id}.year`, item.year)}
                       </span>
                       <span className={`font-medium text-sm md:text-base transition-colors duration-300 ${isActive ? 'text-slate-900 dark:text-white' : 'text-slate-500 group-hover:text-slate-800 dark:text-zinc-500 dark:group-hover:text-zinc-300'}`}>
-                        {item.title}
+                        {t(`journey.items.${item.id}.title`, item.title)}
                       </span>
                     </div>
                   </button>
@@ -123,13 +125,13 @@ const Journey = () => {
                       <i className={activeItem.icon}></i>
                     </div>
                     <div>
-                      <span className="font-mono text-xs text-indigo-500 dark:text-indigo-400 uppercase tracking-widest">{activeItem.year}</span>
-                      <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mt-2">{activeItem.title}</h3>
+                      <span className="font-mono text-xs text-indigo-500 dark:text-indigo-400 uppercase tracking-widest">{t(`journey.items.${activeItem.id}.year`, activeItem.year)}</span>
+                      <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mt-2">{t(`journey.items.${activeItem.id}.title`, activeItem.title)}</h3>
                     </div>
                   </div>
 
                   <p className="text-slate-600 dark:text-zinc-400 text-base md:text-lg leading-relaxed font-light mb-10">
-                    {activeItem.desc}
+                    {t(`journey.items.${activeItem.id}.desc`, activeItem.desc)}
                   </p>
 
                   {/* Tech Stack Pills */}

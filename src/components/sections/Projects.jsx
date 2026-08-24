@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
+import { useTranslation } from 'react-i18next';
 
 const projectsData = [
   {
@@ -51,6 +52,7 @@ const projectsData = [
 ];
 
 const ProjectCard = ({ project, index }) => {
+  const { t } = useTranslation();
   const cardRef = useRef(null);
   
   // Create a parallax scroll effect for the image/graphic
@@ -112,11 +114,11 @@ const ProjectCard = ({ project, index }) => {
         </div>
 
         <h3 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white mb-6 font-display">
-          {project.title}
+          {t(`projects.items.${project.id}.title`, project.title)}
         </h3>
         
         <p className="text-zinc-500 dark:text-zinc-400 text-lg leading-relaxed mb-8">
-          {project.desc}
+          {t(`projects.items.${project.id}.desc`, project.desc)}
         </p>
 
         {/* Tech Stack Tags */}
@@ -140,7 +142,7 @@ const ProjectCard = ({ project, index }) => {
               rel="noreferrer" 
               className="flex items-center gap-2 px-6 py-3 bg-zinc-900 dark:bg-white text-white dark:text-black rounded-full font-medium hover:bg-zinc-800 dark:hover:bg-zinc-200 hover:-translate-y-1 transition-all duration-300 shadow-md hover:shadow-xl"
             >
-              Live Preview
+              {t('projects.livePreview')}
               <i className="fa-solid fa-arrow-up-right-from-square text-sm ml-1"></i>
             </a>
           )}
@@ -151,7 +153,7 @@ const ProjectCard = ({ project, index }) => {
             className="flex items-center gap-2 px-6 py-3 bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-zinc-700 dark:text-zinc-300 rounded-full font-medium hover:bg-zinc-50 dark:hover:bg-white/10 hover:text-zinc-900 dark:hover:text-white hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-md"
           >
             <i className="fa-brands fa-github text-lg"></i>
-            Source Code
+            {t('projects.sourceCode')}
           </a>
         </div>
       </div>
@@ -160,6 +162,7 @@ const ProjectCard = ({ project, index }) => {
 };
 
 const Projects = () => {
+  const { t } = useTranslation();
   return (
     <section id="projects" className="relative py-24 md:py-32 bg-white dark:bg-[#050505] transition-colors duration-300 overflow-hidden">
       
@@ -183,11 +186,11 @@ const Projects = () => {
         >
           <div className="flex items-center gap-4 mb-4">
             <div className="h-[1px] w-12 bg-zinc-300 dark:bg-sky-500/30"></div>
-            <span className="text-zinc-500 dark:text-sky-500 font-mono text-sm uppercase tracking-widest">Showcase</span>
+            <span className="text-zinc-500 dark:text-sky-500 font-mono text-sm uppercase tracking-widest">{t('projects.subtitle')}</span>
             <div className="h-[1px] w-12 bg-zinc-300 dark:bg-sky-500/30"></div>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display text-zinc-900 dark:text-white">
-            Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-500">Works.</span>
+            {t('projects.title1')}<span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-500">{t('projects.title2')}</span>
           </h2>
         </motion.div>
 

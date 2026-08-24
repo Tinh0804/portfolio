@@ -1,0 +1,120 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "journey": "Journey",
+    "skills": "Skills",
+    "projects": "Projects",
+    "letsTalk": "Let's Talk"
+  },
+  "hero": {
+    "status": "Available for new opportunities",
+    "titlePart1": "Building Scalable",
+    "titlePart2": "Web Experiences.",
+    "description": "Hi, I'm <1>Lê Hoàng Quách Tỉnh</1>. A Full-Stack Engineer merging high-performance backend microservices with dynamic web interfaces and robust cloud deployments.",
+    "explore": "Explore Works",
+    "contact": "Contact Me",
+    "coreStack": "Core Stack"
+  },
+  "about": {
+    "subtitle": "Get to know me",
+    "title1": "Beyond the ",
+    "title2": "Code.",
+    "status": "Available for work",
+    "bio1": "Hello! I'm <1>Lê Hoàng Quách Tỉnh</1>. I engineer the unseen foundation of digital products.",
+    "bio2": "My expertise lies in architecting resilient backend systems, orchestrating microservices, and optimizing complex data flows. I don't just write code; I build infrastructure that scales effortlessly under pressure while remaining remarkably easy to maintain and secure.",
+    "viewCv": "View CV",
+    "downloadCv": "Download CV",
+    "card1Title": "Microservices",
+    "card1Desc": "Deconstructing complexity into scalable, isolated systems.",
+    "card2Title": "Cloud / DevOps",
+    "card2Desc": "Automating deployments for 99.9% uptime.",
+    "card3Title": "Backend Engineering",
+    "card3Desc": "Building robust, scalable, and secure APIs."
+  },
+  "skills": {
+    "subtitle": "Arsenal",
+    "title1": "Technical ",
+    "title2": "Toolkit.",
+    "coreLangs": "Core Languages",
+    "coreLangsDesc": "The primary tools I use to translate complex architecture into high-performance executable systems.",
+    "databases": "Databases",
+    "databasesDesc": "Designing robust relational schemas and ultra-fast cache layers.",
+    "frameworks": "Frameworks",
+    "frameworksDesc": "Rapid, secure enterprise scaling.",
+    "cloud": "Cloud & DevOps",
+    "cloudDesc": "Deploying highly available distributed systems and automating the entire CI/CD pipeline."
+  },
+  "projects": {
+    "subtitle": "Showcase",
+    "title1": "Selected ",
+    "title2": "Works.",
+    "livePreview": "Live Preview",
+    "sourceCode": "Source Code",
+    "items": {
+      "1": {
+        "title": "Real-time Auction Platform",
+        "desc": "A high-performance real-time online auction system. Capable of handling continuous live bidding, millisecond-precision countdowns, and instant broadcast of auction results."
+      },
+      "2": {
+        "title": "RideBook",
+        "desc": "Backend architecture for an online ride-booking platform. Engineered to support real-time GPS tracking, smart driver-passenger matching algorithms, and secure payment processing."
+      },
+      "3": {
+        "title": "E-Commerce Microservices",
+        "desc": "An e-commerce platform based on a highly scalable microservices architecture. It encompasses secure authentication, dynamic product catalogs, and robust order management systems."
+      },
+      "4": {
+        "title": "English Learning App",
+        "desc": "Cross-platform English learning application built on a gamification model. Features include real-time progress tracking, a virtual shop system, and AI-driven learning support."
+      }
+    }
+  },
+  "journey": {
+    "subtitle": "Evolution",
+    "title1": "My ",
+    "title2": "Journey.",
+    "items": {
+      "1": {
+        "year": "2026 - Present",
+        "title": "Fullstack Engineer",
+        "desc": "Expanding expertise across the entire application stack. Seamlessly integrating highly scalable backend microservices with modern, responsive, and dynamic frontend architectures."
+      },
+      "2": {
+        "year": "2025",
+        "title": "Backend Engineer",
+        "desc": "Spearheading the transition to highly scalable microservices. Focusing on optimizing database transactions, implementing robust caching strategies, and establishing strict CI/CD pipelines."
+      },
+      "3": {
+        "year": "2024 - 2025",
+        "title": "Mobile App Development",
+        "desc": "Explored the mobile ecosystem, building cross-platform applications with fluid UIs and integrating complex third-party APIs."
+      },
+      "4": {
+        "year": "2023 - 2024",
+        "title": "Programming Fundamentals",
+        "desc": "Built a rock-solid foundation in Computer Science. Focused heavily on algorithms, data structures, and object-oriented programming principles."
+      }
+    }
+  },
+  "contact": {
+    "subtitle": "Contact",
+    "title1": "Let's ",
+    "title2": "Connect.",
+    "desc": "Whether you have a groundbreaking project idea or just want to discuss backend architecture, my inbox is always open.",
+    "location": "Location",
+    "locationValue": "Thanh Khe, Da Nang, Vietnam",
+    "yourName": "Your Name",
+    "yourEmail": "Your Email",
+    "subject": "Subject",
+    "subjectPlaceholder": "How can I help you?",
+    "message": "Message",
+    "messagePlaceholder": "Write your message here...",
+    "send": "Send Message"
+  },
+  "footer": {
+    "madeWith": "Made with ❤️ and ☕",
+    "role": "Fullstack Developer | Clean Code Enthusiast",
+    "visitors": "visitors"
+  }
+}

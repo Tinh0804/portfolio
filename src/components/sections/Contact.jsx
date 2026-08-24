@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
+import { useTranslation } from 'react-i18next';
 
 const Contact = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -46,14 +48,14 @@ const Contact = () => {
         >
           <div className="flex items-center gap-4 mb-4">
             <div className="h-[1px] w-12 bg-sky-500"></div>
-            <span className="text-sky-500 dark:text-sky-400 font-mono text-sm uppercase tracking-widest">Contact</span>
+            <span className="text-sky-500 dark:text-sky-400 font-mono text-sm uppercase tracking-widest">{t('contact.subtitle')}</span>
             <div className="h-[1px] w-12 bg-sky-500"></div>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display text-slate-900 dark:text-white">
-            Let's <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-500 dark:from-sky-400 dark:to-indigo-400">Connect.</span>
+            {t('contact.title1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-500 dark:from-sky-400 dark:to-indigo-400">{t('contact.title2')}</span>
           </h2>
           <p className="text-slate-600 dark:text-zinc-400 text-lg max-w-2xl mx-auto mt-6 font-light">
-            Whether you have a groundbreaking project idea or just want to discuss backend architecture, my inbox is always open.
+            {t('contact.desc')}
           </p>
         </motion.div>
 
@@ -103,8 +105,8 @@ const Contact = () => {
                 <i className="fas fa-map-marker-alt text-2xl text-emerald-500 dark:text-emerald-400 group-hover:animate-bounce transition-all duration-300"></i>
               </div>
               <div>
-                <h4 className="text-xs font-mono uppercase tracking-widest text-slate-500 dark:text-zinc-500 mb-1">Location</h4>
-                <p className="font-semibold text-slate-700 dark:text-zinc-200 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">Thanh Khe, Da Nang, Vietnam</p>
+                <h4 className="text-xs font-mono uppercase tracking-widest text-slate-500 dark:text-zinc-500 mb-1">{t('contact.location')}</h4>
+                <p className="font-semibold text-slate-700 dark:text-zinc-200 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">{t('contact.locationValue')}</p>
               </div>
             </div>
 
@@ -123,7 +125,7 @@ const Contact = () => {
               <div className="grid md:grid-cols-2 gap-6">
                 {/* Name */}
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-600 dark:text-zinc-400">Your Name</label>
+                  <label className="text-sm font-medium text-slate-600 dark:text-zinc-400">{t('contact.yourName')}</label>
                   <input 
                     type="text" 
                     name="name"
@@ -137,7 +139,7 @@ const Contact = () => {
                 
                 {/* Email */}
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-600 dark:text-zinc-400">Your Email</label>
+                  <label className="text-sm font-medium text-slate-600 dark:text-zinc-400">{t('contact.yourEmail')}</label>
                   <input 
                     type="email" 
                     name="email"
@@ -152,13 +154,13 @@ const Contact = () => {
 
               {/* Subject */}
               <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-600 dark:text-zinc-400">Subject</label>
+                <label className="text-sm font-medium text-slate-600 dark:text-zinc-400">{t('contact.subject')}</label>
                 <input 
                   type="text" 
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  placeholder="How can I help you?"
+                  placeholder={t('contact.subjectPlaceholder')}
                   required
                   className="w-full bg-slate-50 dark:bg-[#000000] border border-black/10 dark:border-white/10 rounded-xl px-5 py-4 text-slate-900 dark:text-zinc-200 placeholder:text-slate-400 dark:placeholder:text-zinc-600 focus:outline-none focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/50 transition-all shadow-inner"
                 />
@@ -166,13 +168,13 @@ const Contact = () => {
 
               {/* Message */}
               <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-600 dark:text-zinc-400">Message</label>
+                <label className="text-sm font-medium text-slate-600 dark:text-zinc-400">{t('contact.message')}</label>
                 <textarea 
                   rows="5"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Write your message here..."
+                  placeholder={t('contact.messagePlaceholder')}
                   required
                   className="w-full bg-slate-50 dark:bg-[#000000] border border-black/10 dark:border-white/10 rounded-xl px-5 py-4 text-slate-900 dark:text-zinc-200 placeholder:text-slate-400 dark:placeholder:text-zinc-600 focus:outline-none focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/50 transition-all resize-none shadow-inner"
                 ></textarea>
@@ -183,7 +185,7 @@ const Contact = () => {
                 type="submit"
                 className="w-full py-4 bg-slate-900 dark:bg-zinc-100 text-white dark:text-zinc-900 font-bold rounded-xl transition-all duration-300 hover:bg-black dark:hover:bg-white hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] flex items-center justify-center gap-3 group mt-4"
               >
-                Send Message 
+                {t('contact.send')}
                 <i className="fas fa-paper-plane text-slate-400 dark:text-zinc-600 group-hover:text-white dark:group-hover:text-zinc-900 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all"></i>
               </button>
             </form>
