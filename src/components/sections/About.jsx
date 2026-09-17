@@ -38,7 +38,9 @@ const About = () => {
             <div className="w-full h-[400px] md:h-[450px] lg:h-full min-h-[400px] relative">
               <img 
                 src="/assets/images/avatar.jpeg" 
-                alt="Lê Hoàng Quách Tỉnh" 
+                alt="Lê Hoàng Quách Tỉnh - Fullstack Software Engineer Portfolio" 
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute bottom-6 left-6 flex">

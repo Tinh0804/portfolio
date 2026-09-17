@@ -57,7 +57,9 @@ const Navbar = ({ activeSection }) => {
             <div className="w-10 h-10 rounded-full bg-gradient-to-br from-sky-400 to-indigo-500 p-[2px] shrink-0 shadow-[0_0_15px_rgba(56,189,248,0.3)] group-hover:shadow-[0_0_25px_rgba(56,189,248,0.5)] transition-shadow">
               <img
                 src="/assets/images/avatar.jpeg"
-                alt="Avatar"
+                alt="Lê Hoàng Quách Tỉnh - Fullstack Software Engineer"
+                width="40"
+                height="40"
                 className="w-full h-full rounded-full object-cover border-2 border-white dark:border-[#09090b]"
                 onError={(e) => {
                   e.target.src = 'https://ui-avatars.com/api/?name=Lê+Tỉnh&background=0D8ABC&color=fff';

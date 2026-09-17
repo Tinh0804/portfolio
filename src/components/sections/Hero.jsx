@@ -57,6 +57,7 @@ const Hero = () => {
           <h1 className="text-4xl sm:text-6xl lg:text-[4.5rem] font-bold font-display leading-[1.1] text-slate-900 dark:text-white tracking-tight mb-6 drop-shadow-sm dark:drop-shadow-lg">
             {t('hero.titlePart1')} <br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-500 dark:from-sky-400 dark:to-indigo-400">{t('hero.titlePart2')}</span>
+            <span className="sr-only"> - Lê Hoàng Quách Tỉnh | Fullstack Software Engineer</span>
           </h1>
 
           <p className="text-slate-600 dark:text-zinc-400 text-lg max-w-xl leading-relaxed mb-10 font-light drop-shadow-sm dark:drop-shadow-md">

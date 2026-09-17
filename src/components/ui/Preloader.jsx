@@ -88,7 +88,7 @@ const Preloader = () => {
             
             {/* Massive Awwwards-style counter */}
             <div className="overflow-hidden mb-2">
-              <motion.h1 
+              <motion.div 
                 initial={{ y: 150, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }} // Springy reveal
@@ -96,7 +96,7 @@ const Preloader = () => {
               >
                 {displayProgress}
                 <span className="text-4xl md:text-8xl text-sky-500">%</span>
-              </motion.h1>
+              </motion.div>
             </div>
 
             {/* Subtitle / Brand */}
