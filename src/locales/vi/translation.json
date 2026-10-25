@@ -9,44 +9,44 @@
   },
   "hero": {
     "status": "Sẵn sàng đón nhận cơ hội mới",
-    "titlePart1": "Xây dựng trải nghiệm",
-    "titlePart2": "Web toàn diện.",
-    "description": "Xin chào, mình là <1>Lê Hoàng Quách Tỉnh</1>. Một Kỹ sư Full-Stack kết hợp các microservices backend hiệu năng cao với giao diện web linh hoạt và triển khai trên đám mây mạnh mẽ.",
+    "titlePart1": "Kiến trúc hệ thống phân tán",
+    "titlePart2": "và nền tảng web hiện đại.",
+    "description": "Xin chào, mình là <1>Lê Hoàng Quách Tỉnh</1>. Kỹ sư Phần mềm Fullstack tập trung vào microservices backend hiệu năng cao, hệ thống phân tán thời gian thực và trải nghiệm web mượt mà.",
     "explore": "Khám phá Dự án",
     "contact": "Liên hệ ngay",
     "coreStack": "Công nghệ cốt lõi"
   },
   "about": {
-    "subtitle": "Tìm hiểu về mình",
-    "title1": "Hơn cả những ",
-    "title2": "Dòng code.",
+    "subtitle": "Hồ sơ & Triết lý kỹ thuật",
+    "title1": "Nền tảng kỹ thuật & ",
+    "title2": "Tư duy thiết kế.",
     "status": "Sẵn sàng làm việc",
-    "bio1": "Xin chào! Mình là <1>Lê Hoàng Quách Tỉnh</1>. Mình kiến tạo nên nền tảng vững chắc đằng sau các sản phẩm số.",
-    "bio2": "Chuyên môn của mình nằm ở việc thiết kế các hệ thống backend linh hoạt, điều phối microservices và tối ưu hoá luồng dữ liệu phức tạp. Mình không chỉ viết code; mình xây dựng hạ tầng mở rộng mượt mà dưới áp lực cao, đồng thời dễ bảo trì và bảo mật vững chắc.",
+    "bio1": "Xin chào! Mình là <1>Lê Hoàng Quách Tỉnh</1>, Kỹ sư Phần mềm chuyên sâu về kiến trúc backend và hệ thống phân tán.",
+    "bio2": "Tập trung xây dựng microservices mở rộng ổn định, tối ưu hóa cơ sở dữ liệu và phát triển ứng dụng web thời gian thực mượt mà.",
     "viewCv": "Xem CV",
     "downloadCv": "Tải CV",
-    "card1Title": "Microservices",
-    "card1Desc": "Chia nhỏ sự phức tạp thành các hệ thống mở rộng và độc lập.",
-    "card2Title": "Cloud / DevOps",
-    "card2Desc": "Tự động hóa quá trình triển khai, hướng tới uptime 99.9%.",
-    "card3Title": "Backend Engineering",
-    "card3Desc": "Xây dựng các API mạnh mẽ, có khả năng mở rộng và bảo mật."
+    "card1Title": "Kiến trúc Phân tán",
+    "card1Desc": "Microservices module hóa, API an toàn và kiến trúc hướng sự kiện.",
+    "card2Title": "Đồng thời & Thời gian thực",
+    "card2Desc": "Xử lý đồng thời lưu lượng cao với Redis caching và WebSocket.",
+    "card3Title": "Độ tin cậy Kỹ thuật",
+    "card3Desc": "Tự động hóa luồng CI/CD, chuẩn hóa Docker và bảo đảm toàn vẹn dữ liệu."
   },
   "skills": {
-    "subtitle": "Vũ khí",
+    "subtitle": "Hệ sinh thái công nghệ",
     "title1": "Kho công nghệ ",
     "title2": "Kỹ thuật.",
     "coreLangs": "Ngôn ngữ cốt lõi",
-    "coreLangsDesc": "Những công cụ chính mình dùng để chuyển đổi kiến trúc phức tạp thành hệ thống thực thi hiệu năng cao.",
-    "databases": "Cơ sở dữ liệu",
-    "databasesDesc": "Thiết kế các schema quan hệ mạnh mẽ và các lớp cache siêu tốc.",
-    "frameworks": "Frameworks",
-    "frameworksDesc": "Mở rộng hệ thống doanh nghiệp nhanh chóng và an toàn.",
+    "coreLangsDesc": "Các ngôn ngữ chủ lực dùng để xây dựng các dịch vụ hiệu năng cao, mô hình dữ liệu và ứng dụng phản hồi nhanh.",
+    "databases": "Cơ sở dữ liệu & Caching",
+    "databasesDesc": "Thiết kế schema quan hệ chuẩn hóa, lưu trữ NoSQL linh hoạt và các lớp cache siêu tốc.",
+    "frameworks": "Frameworks & Nền tảng",
+    "frameworksDesc": "Các framework cấp doanh nghiệp tiêu chuẩn phục vụ phát triển ứng dụng an toàn và ổn định.",
     "cloud": "Cloud & DevOps",
-    "cloudDesc": "Triển khai các hệ thống phân tán tính khả dụng cao và tự động hoá toàn bộ luồng CI/CD."
+    "cloudDesc": "Đóng gói ứng dụng, tự động hóa quy trình với GitHub Actions và triển khai dịch vụ lên đám mây."
   },
   "projects": {
-    "subtitle": "Trưng bày",
+    "subtitle": "Dự án thực tế",
     "title1": "Dự án ",
     "title2": "Tiêu biểu.",
     "livePreview": "Xem thực tế",
@@ -54,67 +54,67 @@
     "items": {
       "1": {
         "title": "Nền tảng Đấu giá Thời gian thực",
-        "desc": "Hệ thống đấu giá trực tuyến thời gian thực hiệu năng cao. Có khả năng xử lý đấu giá liên tục, đếm ngược chính xác tới phần nghìn giây và phát sóng kết quả đấu giá ngay lập tức."
+        "desc": "Hệ thống đấu giá trực tuyến thời gian thực hiệu năng cao. Xử lý luồng đặt giá liên tục, bộ đếm ngược chính xác tới mili-giây và đồng bộ kết quả tức thì bằng Spring Boot, Redis Pub/Sub và WebSockets."
       },
       "2": {
         "title": "RideBook",
-        "desc": "Kiến trúc backend cho nền tảng đặt xe trực tuyến. Được thiết kế để hỗ trợ theo dõi GPS thời gian thực, thuật toán ghép cuốc thông minh và xử lý thanh toán bảo mật."
+        "desc": "Kiến trúc backend cho nền tảng đặt xe trực tuyến. Được thiết kế để theo dõi GPS thời gian thực, thuật toán ghép cuốc thông minh qua Redis Geo và luồng xử lý giao dịch an toàn."
       },
       "3": {
         "title": "E-Commerce Microservices",
-        "desc": "Nền tảng thương mại điện tử dựa trên kiến trúc microservices khả năng mở rộng cao. Bao gồm xác thực bảo mật, danh mục sản phẩm động và hệ thống quản lý đơn hàng mạnh mẽ."
+        "desc": "Nền tảng thương mại điện tử xây dựng trên kiến trúc microservices khả năng mở rộng cao. Bao gồm bảo mật JWT, danh mục sản phẩm linh hoạt và quản trị đơn hàng bất đồng bộ."
       },
       "4": {
         "title": "Ứng dụng Học Tiếng Anh",
-        "desc": "Ứng dụng học tiếng Anh đa nền tảng xây dựng theo mô hình trò chơi hoá. Các tính năng bao gồm theo dõi tiến độ thời gian thực, hệ thống cửa hàng ảo và hỗ trợ học tập qua AI."
+        "desc": "Ứng dụng học tiếng Anh đa nền tảng kết hợp mô hình trò chơi hóa. Tính năng theo dõi tiến độ thời gian thực, hệ thống cửa hàng ảo và tích hợp API hỗ trợ học tập thông minh."
       }
     }
   },
   "journey": {
-    "subtitle": "Tiến trình",
+    "subtitle": "Cột mốc kinh nghiệm",
     "title1": "Hành trình ",
     "title2": "Phát triển.",
     "items": {
       "1": {
         "year": "2026 - Hiện tại",
-        "title": "Kỹ sư Fullstack",
-        "desc": "Mở rộng chuyên môn trên toàn bộ hệ thống ứng dụng. Tích hợp liền mạch các microservices backend khả năng mở rộng cao với các kiến trúc frontend hiện đại, linh hoạt."
+        "title": "Kỹ sư Phần mềm Fullstack",
+        "desc": "Thiết kế các microservices backend với Spring Boot & Redis, kết hợp giao diện web hiện đại và triển khai CI/CD tự động."
       },
       "2": {
         "year": "2025",
-        "title": "Kỹ sư Backend",
-        "desc": "Dẫn dắt quá trình chuyển đổi sang microservices. Tập trung vào tối ưu hóa giao dịch cơ sở dữ liệu, triển khai chiến lược caching mạnh mẽ và thiết lập luồng CI/CD chặt chẽ."
+        "title": "Trọng tâm Hệ thống Backend",
+        "desc": "Đi sâu vào kiến trúc microservices, tối ưu hóa giao dịch cơ sở dữ liệu, đánh chỉ mục truy vấn và môi trường Docker."
       },
       "3": {
         "year": "2024 - 2025",
-        "title": "Phát triển Ứng dụng Di động",
-        "desc": "Khám phá hệ sinh thái di động, xây dựng các ứng dụng đa nền tảng với giao diện mượt mà và tích hợp các API bên thứ ba phức tạp."
+        "title": "Ứng dụng Di động & Web",
+        "desc": "Xây dựng các ứng dụng đa nền tảng với giao diện người dùng mượt mà, tích hợp RESTful APIs và cổng thanh toán."
       },
       "4": {
         "year": "2023 - 2024",
-        "title": "Nền tảng Lập trình",
-        "desc": "Xây dựng nền tảng khoa học máy tính vững chắc. Tập trung mạnh vào thuật toán, cấu trúc dữ liệu và các nguyên lý lập trình hướng đối tượng."
+        "title": "Nền tảng Khoa học Máy tính",
+        "desc": "Nền tảng vững chắc về giải thuật, cấu trúc dữ liệu, lập trình hướng đối tượng (OOP) và nguyên lý kiến trúc phần mềm."
       }
     }
   },
   "contact": {
-    "subtitle": "Liên hệ",
+    "subtitle": "Liên hệ trao đổi",
     "title1": "Cùng ",
     "title2": "Kết nối.",
-    "desc": "Dù bạn có một ý tưởng dự án đột phá hay chỉ muốn thảo luận về kiến trúc backend, hộp thư của mình luôn mở.",
+    "desc": "Bạn có ý tưởng dự án, cơ hội hợp tác hoặc muốn trao đổi về kiến trúc hệ thống backend? Hộp thư của mình luôn sẵn sàng.",
     "location": "Địa chỉ",
     "locationValue": "Thanh Khê, Đà Nẵng, Việt Nam",
-    "yourName": "Tên của bạn",
-    "yourEmail": "Email của bạn",
+    "yourName": "Họ và tên",
+    "yourEmail": "Địa chỉ Email",
     "subject": "Chủ đề",
-    "subjectPlaceholder": "Mình có thể giúp gì cho bạn?",
+    "subjectPlaceholder": "Bạn muốn trao đổi về nội dung gì?",
     "message": "Tin nhắn",
-    "messagePlaceholder": "Viết tin nhắn của bạn ở đây...",
+    "messagePlaceholder": "Nội dung tin nhắn của bạn...",
     "send": "Gửi Tin Nhắn"
   },
   "footer": {
-    "madeWith": "Tạo nên với ❤️ và ☕",
-    "role": "Lập trình viên Fullstack | Đam mê Clean Code",
+    "madeWith": "Thiết kế chỉn chu với tư duy Clean Code",
+    "role": "Kỹ sư Phần mềm Fullstack",
     "visitors": "Lượt truy cập"
   }
 }

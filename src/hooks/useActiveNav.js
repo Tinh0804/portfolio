@@ -4,31 +4,36 @@ export const useActiveNav = () => {
   const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = document.querySelectorAll('section[id]');
-      const scrollY = window.pageYOffset;
+    const sections = document.querySelectorAll('section[id]');
+    if (!sections.length) return;
 
-      sections.forEach((section) => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 150;
-        const sectionId = section.getAttribute('id');
+    // Use IntersectionObserver for 60fps zero-reflow active nav tracking
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: '-30% 0px -50% 0px',
+        threshold: 0,
+      }
+    );
 
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-          setActiveSection(sectionId);
-        }
-      });
-    };
+    sections.forEach((section) => observer.observe(section));
 
-    window.addEventListener('scroll', handleScroll);
-    
-    // Smooth scrolling logic
+    // Smooth scrolling delegation for anchor clicks
     const handleAnchorClick = (e) => {
-      const targetId = e.currentTarget.getAttribute('href');
-      if (targetId === '#' || !targetId.startsWith('#')) return;
-      e.preventDefault();
+      const anchor = e.target.closest('a[href^="#"]');
+      if (!anchor) return;
+      const targetId = anchor.getAttribute('href');
+      if (!targetId || targetId === '#' || targetId.length <= 1) return;
 
       const target = document.querySelector(targetId);
       if (target) {
+        e.preventDefault();
         target.scrollIntoView({
           behavior: 'smooth',
           block: 'start',
@@ -36,12 +41,11 @@ export const useActiveNav = () => {
       }
     };
 
-    const anchors = document.querySelectorAll('a[href^="#"]');
-    anchors.forEach((anchor) => anchor.addEventListener('click', handleAnchorClick));
+    document.addEventListener('click', handleAnchorClick);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      anchors.forEach((anchor) => anchor.removeEventListener('click', handleAnchorClick));
+      sections.forEach((section) => observer.unobserve(section));
+      document.removeEventListener('click', handleAnchorClick);
     };
   }, []);
 

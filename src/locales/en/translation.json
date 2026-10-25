@@ -9,112 +9,112 @@
   },
   "hero": {
     "status": "Available for new opportunities",
-    "titlePart1": "Building Scalable",
-    "titlePart2": "Web Experiences.",
-    "description": "Hi, I'm <1>Lê Hoàng Quách Tỉnh</1>. A Full-Stack Engineer merging high-performance backend microservices with dynamic web interfaces and robust cloud deployments.",
-    "explore": "Explore Works",
-    "contact": "Contact Me",
+    "titlePart1": "Architecting scalable systems",
+    "titlePart2": "for the modern web.",
+    "description": "Hi, I'm <1>Lê Hoàng Quách Tỉnh</1>. A Fullstack Software Engineer focused on high-performance backend microservices, real-time distributed architecture, and responsive user experiences.",
+    "explore": "Explore Projects",
+    "contact": "Get in Touch",
     "coreStack": "Core Stack"
   },
   "about": {
-    "subtitle": "Get to know me",
-    "title1": "Beyond the ",
-    "title2": "Code.",
+    "subtitle": "Background & Philosophy",
+    "title1": "Engineering Foundations & ",
+    "title2": "Mindset.",
     "status": "Available for work",
-    "bio1": "Hello! I'm <1>Lê Hoàng Quách Tỉnh</1>. I engineer the unseen foundation of digital products.",
-    "bio2": "My expertise lies in architecting resilient backend systems, orchestrating microservices, and optimizing complex data flows. I don't just write code; I build infrastructure that scales effortlessly under pressure while remaining remarkably easy to maintain and secure.",
+    "bio1": "Hello! I'm <1>Lê Hoàng Quách Tỉnh</1>, a Software Engineer specializing in backend architecture and distributed systems.",
+    "bio2": "Focused on engineering scalable microservices, database optimization, and fluid real-time web applications.",
     "viewCv": "View CV",
     "downloadCv": "Download CV",
-    "card1Title": "Microservices",
-    "card1Desc": "Deconstructing complexity into scalable, isolated systems.",
-    "card2Title": "Cloud / DevOps",
-    "card2Desc": "Automating deployments for 99.9% uptime.",
-    "card3Title": "Backend Engineering",
-    "card3Desc": "Building robust, scalable, and secure APIs."
+    "card1Title": "Distributed Architecture",
+    "card1Desc": "Modular microservices, idempotent APIs, and event-driven systems.",
+    "card2Title": "Concurrency & Real-time",
+    "card2Desc": "High-concurrency streaming with Redis caching and WebSockets.",
+    "card3Title": "Engineering Reliability",
+    "card3Desc": "Automated CI/CD pipelines, Docker containerization, and ACID safety."
   },
   "skills": {
-    "subtitle": "Arsenal",
+    "subtitle": "Stack & Tools",
     "title1": "Technical ",
     "title2": "Toolkit.",
     "coreLangs": "Core Languages",
-    "coreLangsDesc": "The primary tools I use to translate complex architecture into high-performance executable systems.",
-    "databases": "Databases",
-    "databasesDesc": "Designing robust relational schemas and ultra-fast cache layers.",
-    "frameworks": "Frameworks",
-    "frameworksDesc": "Rapid, secure enterprise scaling.",
+    "coreLangsDesc": "Primary languages for building performant services, data models, and reactive applications.",
+    "databases": "Databases & Cache",
+    "databasesDesc": "Designing normalized relational schemas, document stores, and ultra-fast cache layers.",
+    "frameworks": "Frameworks & Runtimes",
+    "frameworksDesc": "Production-ready enterprise frameworks for building secure, scalable services.",
     "cloud": "Cloud & DevOps",
-    "cloudDesc": "Deploying highly available distributed systems and automating the entire CI/CD pipeline."
+    "cloudDesc": "Containerization, automated GitHub Actions pipelines, and reliable cloud deployments."
   },
   "projects": {
-    "subtitle": "Showcase",
-    "title1": "Selected ",
-    "title2": "Works.",
+    "subtitle": "Selected Work",
+    "title1": "Featured ",
+    "title2": "Projects.",
     "livePreview": "Live Preview",
     "sourceCode": "Source Code",
     "items": {
       "1": {
         "title": "Real-time Auction Platform",
-        "desc": "A high-performance real-time online auction system. Capable of handling continuous live bidding, millisecond-precision countdowns, and instant broadcast of auction results."
+        "desc": "A high-performance real-time online auction system. Handles continuous live bidding, millisecond-precision countdowns, and instant broadcast of auction results using Spring Boot, Redis Pub/Sub, and WebSockets."
       },
       "2": {
         "title": "RideBook",
-        "desc": "Backend architecture for an online ride-booking platform. Engineered to support real-time GPS tracking, smart driver-passenger matching algorithms, and secure payment processing."
+        "desc": "Backend architecture for an online ride-booking platform. Engineered to support real-time GPS tracking, smart driver-passenger matching algorithms via Redis Geo, and secure transaction workflows."
       },
       "3": {
         "title": "E-Commerce Microservices",
-        "desc": "An e-commerce platform based on a highly scalable microservices architecture. It encompasses secure authentication, dynamic product catalogs, and robust order management systems."
+        "desc": "An e-commerce platform built on a scalable microservices architecture. Encompasses secure JWT authentication, dynamic product catalogs, and asynchronous order management."
       },
       "4": {
         "title": "English Learning App",
-        "desc": "Cross-platform English learning application built on a gamification model. Features include real-time progress tracking, a virtual shop system, and AI-driven learning support."
+        "desc": "Cross-platform English learning application built on a gamification model. Features real-time progress tracking, a virtual shop system, and AI-assisted learning APIs."
       }
     }
   },
   "journey": {
-    "subtitle": "Evolution",
-    "title1": "My ",
+    "subtitle": "Milestones",
+    "title1": "Career ",
     "title2": "Journey.",
     "items": {
       "1": {
         "year": "2026 - Present",
-        "title": "Fullstack Engineer",
-        "desc": "Expanding expertise across the entire application stack. Seamlessly integrating highly scalable backend microservices with modern, responsive, and dynamic frontend architectures."
+        "title": "Fullstack Software Engineer",
+        "desc": "Designing scalable backend microservices with Spring Boot & Redis, paired with responsive web applications and automated CI/CD deployments."
       },
       "2": {
         "year": "2025",
-        "title": "Backend Engineer",
-        "desc": "Spearheading the transition to highly scalable microservices. Focusing on optimizing database transactions, implementing robust caching strategies, and establishing strict CI/CD pipelines."
+        "title": "Backend Systems Focus",
+        "desc": "Deepening microservices architecture, database transaction optimization, query indexing, and containerized Docker environments."
       },
       "3": {
         "year": "2024 - 2025",
-        "title": "Mobile App Development",
-        "desc": "Explored the mobile ecosystem, building cross-platform applications with fluid UIs and integrating complex third-party APIs."
+        "title": "Mobile & Web Applications",
+        "desc": "Developed cross-platform applications with fluid user interfaces and integrated third-party RESTful APIs and payment gateways."
       },
       "4": {
         "year": "2023 - 2024",
-        "title": "Programming Fundamentals",
-        "desc": "Built a rock-solid foundation in Computer Science. Focused heavily on algorithms, data structures, and object-oriented programming principles."
+        "title": "Computer Science Fundamentals",
+        "desc": "Solid foundation in Computer Science: algorithms, data structures, Object-Oriented Design (OOP), and software engineering principles."
       }
     }
   },
   "contact": {
-    "subtitle": "Contact",
+    "subtitle": "Get in Touch",
     "title1": "Let's ",
     "title2": "Connect.",
-    "desc": "Whether you have a groundbreaking project idea or just want to discuss backend architecture, my inbox is always open.",
+    "desc": "Have an engineering opportunity, a project to collaborate on, or want to discuss backend architecture? Feel free to reach out anytime.",
     "location": "Location",
     "locationValue": "Thanh Khe, Da Nang, Vietnam",
     "yourName": "Your Name",
     "yourEmail": "Your Email",
     "subject": "Subject",
-    "subjectPlaceholder": "How can I help you?",
+    "subjectPlaceholder": "What would you like to discuss?",
     "message": "Message",
     "messagePlaceholder": "Write your message here...",
     "send": "Send Message"
   },
   "footer": {
-    "madeWith": "Made with ❤️ and ☕",
-    "role": "Fullstack Developer | Clean Code Enthusiast",
-    "visitors": "visitors"
+    "madeWith": "Crafted with precision & clean code",
+    "role": "Fullstack Software Engineer",
+    "visitors": "Visitors"
   }
 }

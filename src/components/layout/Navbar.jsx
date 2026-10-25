@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import ThemeToggle from '../ui/ThemeToggle';
 
@@ -7,14 +7,14 @@ const Navbar = ({ activeSection }) => {
   const { t, i18n } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { scrollY } = useScroll();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const isPastThreshold = latest > 50;
+    if (isPastThreshold !== scrolled) {
+      setScrolled(isPastThreshold);
+    }
+  });
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -43,7 +43,7 @@ const Navbar = ({ activeSection }) => {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
-        className="fixed w-full top-0 md:top-6 z-50 flex justify-center pointer-events-none px-4"
+        className="fixed w-full top-0 md:top-6 z-50 flex justify-center pointer-events-none px-4 transform-gpu [backface-visibility:hidden]"
       >
         <div 
           className={`pointer-events-auto transition-all duration-500 flex items-center justify-between rounded-none md:rounded-full ${
@@ -53,8 +53,8 @@ const Navbar = ({ activeSection }) => {
           }`}
         >
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-sky-400 to-indigo-500 p-[2px] shrink-0 shadow-[0_0_15px_rgba(56,189,248,0.3)] group-hover:shadow-[0_0_25px_rgba(56,189,248,0.5)] transition-shadow">
+          <a href="#home" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-sky-400 to-indigo-500 p-[2px] shrink-0 shadow-[0_0_15px_rgba(56,189,248,0.3)] group-hover:shadow-[0_0_25px_rgba(56,189,248,0.5)] transition-shadow">
               <img
                 src="/assets/images/avatar.jpeg"
                 alt="Lê Hoàng Quách Tỉnh - Fullstack Software Engineer"
@@ -66,20 +66,20 @@ const Navbar = ({ activeSection }) => {
                 }}
               />
             </div>
-            <span className={`font-bold font-display tracking-wide transition-all duration-300 ${scrolled ? 'text-slate-900 dark:text-white text-lg' : 'text-slate-900 dark:text-white text-xl md:text-2xl'}`}>
+            <span className={`font-bold font-display tracking-wide transition-all duration-300 ${scrolled ? 'text-slate-900 dark:text-white text-base sm:text-lg' : 'text-slate-900 dark:text-white text-lg sm:text-xl md:text-2xl'}`}>
               Tỉnh<span className="text-sky-500 dark:text-sky-400">.</span>
             </span>
           </a>
 
-          {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-8 lg:gap-10">
+          {/* Desktop Links (Mac & Desktop 1024px+) */}
+          <div className="hidden lg:flex items-center gap-6 xl:gap-9">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
               return (
                 <a
                   key={link.id}
                   href={`#${link.id}`}
-                  className={`text-base font-semibold transition-colors hover:text-slate-900 dark:hover:text-white relative ${
+                  className={`text-sm xl:text-base font-semibold transition-colors hover:text-slate-900 dark:hover:text-white relative ${
                     isActive ? 'text-slate-900 dark:text-white' : 'text-slate-500 dark:text-zinc-300'
                   }`}
                 >
@@ -95,45 +95,47 @@ const Navbar = ({ activeSection }) => {
             })}
           </div>
 
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-3 xl:gap-4">
             <button
               onClick={toggleLanguage}
-              className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-800 dark:text-white transition-colors focus:outline-none pointer-events-auto"
+              className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-800 dark:text-white transition-colors focus:outline-none pointer-events-auto"
               title="Toggle Language"
             >
-              <span className="font-bold text-sm">{i18n.language.startsWith('vi') ? 'VI' : 'EN'}</span>
+              <span className="font-bold text-xs sm:text-sm">{i18n.language.startsWith('vi') ? 'VI' : 'EN'}</span>
             </button>
             <ThemeToggle />
             
             {/* Desktop Contact Button */}
             <a 
               href="#contact"
-              className="px-6 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-black text-base font-bold rounded-full hover:bg-sky-500 dark:hover:bg-sky-400 hover:text-white dark:hover:text-white hover:scale-105 transition-all duration-300 shadow-lg"
+              className="px-5 xl:px-6 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-black text-sm xl:text-base font-bold rounded-full hover:bg-sky-500 dark:hover:bg-sky-400 hover:text-white dark:hover:text-white hover:scale-105 transition-all duration-300 shadow-lg"
             >
               {t('nav.letsTalk', "Let's Talk")}
             </a>
           </div>
 
-          {/* Mobile Menu Toggle & Theme */}
-          <div className="flex md:hidden items-center gap-4">
+          {/* Mobile & Tablet Toggle Bar (iPad, phones, watches < 1024px) */}
+          <div className="flex lg:hidden items-center gap-2 sm:gap-3">
             <button
               onClick={toggleLanguage}
-              className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-800 dark:text-white transition-colors focus:outline-none pointer-events-auto"
+              className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-800 dark:text-white transition-colors focus:outline-none pointer-events-auto text-xs font-bold"
+              title="Toggle Language"
             >
-              <span className="font-bold text-xs">{i18n.language.startsWith('vi') ? 'VI' : 'EN'}</span>
+              <span>{i18n.language.startsWith('vi') ? 'VI' : 'EN'}</span>
             </button>
             <ThemeToggle />
             <button
-              className="text-slate-800 dark:text-white hover:text-sky-500 dark:hover:text-sky-400 transition-colors focus:outline-none pointer-events-auto"
+              className="text-slate-800 dark:text-white hover:text-sky-500 dark:hover:text-sky-400 transition-colors focus:outline-none pointer-events-auto p-1"
               onClick={toggleMobileMenu}
+              aria-label="Toggle navigation menu"
             >
-              <i className={`fas ${isMobileMenuOpen ? 'fa-times' : 'fa-bars'} text-2xl`}></i>
+              <i className={`fas ${isMobileMenuOpen ? 'fa-times' : 'fa-bars'} text-xl sm:text-2xl`}></i>
             </button>
           </div>
         </div>
       </motion.nav>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile & Tablet Menu Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -141,7 +143,7 @@ const Navbar = ({ activeSection }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-[72px] z-40 bg-white/95 dark:bg-black/95 backdrop-blur-2xl border-b border-black/10 dark:border-white/10 md:hidden pointer-events-auto"
+            className="fixed inset-x-0 top-[64px] sm:top-[72px] z-40 bg-white/95 dark:bg-[#09090b]/95 backdrop-blur-2xl border-b border-black/10 dark:border-white/10 lg:hidden pointer-events-auto shadow-2xl"
           >
             <div className="px-6 py-8 flex flex-col gap-6">
               {navLinks.map((link) => (

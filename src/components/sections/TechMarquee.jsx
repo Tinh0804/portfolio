@@ -32,7 +32,7 @@ const MarqueeLane = ({ items, direction = "left", speed = 20, opacity = "opacity
   return (
     <div className={`flex w-full overflow-hidden relative ${opacity} ${scale} hover:opacity-100 transition-opacity duration-500 group`}>
       <div 
-        className="flex w-max will-change-transform"
+        className="flex w-max will-change-transform transform-gpu [backface-visibility:hidden]"
         style={{ 
           animation: `marquee-${direction} ${speed}s linear infinite`,
           // hover to pause
@@ -42,12 +42,12 @@ const MarqueeLane = ({ items, direction = "left", speed = 20, opacity = "opacity
         {[...items, ...items, ...items, ...items].map((tech, index) => (
           <div 
             key={index} 
-            className="flex items-center gap-3 md:gap-4 px-6 md:px-8 py-3 md:py-4 mx-2 md:mx-4 rounded-full bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none shrink-0 hover:shadow-md dark:hover:bg-white/[0.06] hover:border-sky-400/50 dark:hover:border-sky-500/40 hover:scale-105 transition-all duration-300 cursor-default"
+            className="flex items-center gap-2.5 sm:gap-3 md:gap-4 px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 mx-1.5 sm:mx-2 md:mx-4 rounded-full bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none shrink-0 hover:shadow-md dark:hover:bg-white/[0.06] hover:border-sky-400/50 dark:hover:border-sky-500/40 hover:scale-105 transition-all duration-300 cursor-default"
           >
             <img 
               src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${tech.icon}`} 
               alt={tech.name} 
-              className={`w-6 h-6 md:w-8 md:h-8 object-contain ${tech.invertInDark ? 'dark:invert' : ''} ${tech.darkDropShadow ? 'dark:drop-shadow-[0_0_2px_rgba(255,255,255,0.8)]' : ''}`} 
+              className={`w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 object-contain ${tech.invertInDark ? 'dark:invert' : ''} ${tech.darkDropShadow ? 'dark:drop-shadow-[0_0_2px_rgba(255,255,255,0.8)]' : ''}`} 
               onError={(e) => {
                 if (!e.target.dataset.retried) {
                   e.target.dataset.retried = true;
@@ -55,7 +55,7 @@ const MarqueeLane = ({ items, direction = "left", speed = 20, opacity = "opacity
                 }
               }}
             />
-            <span className="font-semibold text-base md:text-lg text-slate-600 dark:text-zinc-300 transition-colors tracking-wide whitespace-nowrap">
+            <span className="font-semibold text-xs sm:text-sm md:text-base text-slate-600 dark:text-zinc-300 transition-colors tracking-wide whitespace-nowrap">
               {tech.name}
             </span>
           </div>
@@ -67,7 +67,7 @@ const MarqueeLane = ({ items, direction = "left", speed = 20, opacity = "opacity
 
 const TechMarquee = () => {
   return (
-    <div className="w-full relative overflow-hidden py-10 flex flex-col gap-6 md:gap-8" style={{ perspective: "1000px" }}>
+    <div className="w-full relative overflow-hidden py-6 sm:py-10 flex flex-col gap-4 sm:gap-6 md:gap-8" style={{ perspective: "1000px" }}>
       
       <style>
         {`
@@ -86,9 +86,9 @@ const TechMarquee = () => {
         `}
       </style>
 
-      {/* Fade masks */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-slate-50 via-slate-50/80 dark:from-[#09090b] dark:via-[#09090b]/80 to-transparent z-20 pointer-events-none transition-colors duration-300"></div>
-      <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-slate-50 via-slate-50/80 dark:from-[#09090b] dark:via-[#09090b]/80 to-transparent z-20 pointer-events-none transition-colors duration-300"></div>
+      {/* Responsive Fade masks */}
+      <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-20 md:w-44 bg-gradient-to-r from-slate-50 via-slate-50/80 dark:from-[#09090b] dark:via-[#09090b]/80 to-transparent z-20 pointer-events-none transition-colors duration-300"></div>
+      <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-20 md:w-44 bg-gradient-to-l from-slate-50 via-slate-50/80 dark:from-[#09090b] dark:via-[#09090b]/80 to-transparent z-20 pointer-events-none transition-colors duration-300"></div>
       
       {/* 3D Container */}
       <div 
